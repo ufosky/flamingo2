@@ -1,5 +1,6 @@
 
-#include "SDL/SDL.h"
+#include <SDL/SDL.h>
+#include <OpenGL/gl.h>
 
 class Flamingo {
 
