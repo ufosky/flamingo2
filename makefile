@@ -1,15 +1,15 @@
 CC=g++
 CFLAGS=-c -Wall -Iinclude
-LDFLAGES=
-SOURCES=flamingo.cpp
+LDFLAGS=-lsdl `sdl-config --cflags --libs`
+SOURCES=flamingo.cpp init.cpp event.cpp render.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
-EXECUTABLE=flamingo
 BUILDDIR=build
+EXECUTABLE=flamingo
 
 all: $(SOURCES) $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $(LDFLAGS) $(BUILDDIR)/$(OBJECTS) -o $(BUILDDIR)/$@
+	$(CC) $(LDFLAGS) $(OBJECTS:%=$(BUILDDIR)/%) -o $(BUILDDIR)/$@
 
 .cpp.o:
 	$(CC) $(CFLAGS) $< -o $(BUILDDIR)/$@ 
