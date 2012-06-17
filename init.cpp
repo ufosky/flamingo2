@@ -7,6 +7,7 @@ int Flamingo::init() {
         return -1;
     }
 
+    // Initialize SDL_GL Attributes
     SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
     SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
     SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
@@ -24,21 +25,24 @@ int Flamingo::init() {
     SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 2);
     
 
-    if ((Surf_display = SDL_SetVideoMode(640, 480, 32, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_OPENGL)) == NULL) {
+    // Create window
+    display_size = (SDL_Rect){0, 0, 1024, 768};
+    if ((Surf_display = SDL_SetVideoMode(display_size.w, display_size.h, 32, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_OPENGL)) == NULL) {
         return -1;
     }
 
+    // OpenGL settings
     glClearColor(0, 0, 0, 0);
     glClearDepth(1.0f);
-     
-    glViewport(0, 0, 640, 480);
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    glOrtho(0, 640, 480, 0, 1, -1);
-    glMatrixMode(GL_MODELVIEW);
-     
     glEnable(GL_TEXTURE_2D);
-    glLoadIdentity();
+
+    // Flamingo Settings
+    Screen s = Screen(&display_size);
+    screens = std::list<Screen>();
+    screens.push_back(s);
+
+    s = Screen(&(SDL_Rect){0, 240, 640, 240});
+    screens.push_back(s);
 
     return 0;
 }

@@ -1,12 +1,13 @@
 
-#include <iostream>
-
 #include "flamingo.h"
 
 Flamingo::Flamingo() {
     running = true;
-
     Surf_display = NULL;
+}
+
+Flamingo::~Flamingo() {
+
 }
 
 int Flamingo::execute() {
