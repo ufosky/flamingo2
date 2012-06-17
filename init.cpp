@@ -41,7 +41,8 @@ int Flamingo::init() {
     screens = std::list<Screen>();
     screens.push_back(s);
 
-    s = Screen(&(SDL_Rect){0, 240, 640, 240});
+    SDL_Rect r = {0, 240, 640, 240};
+    s = Screen(&r);
     screens.push_back(s);
 
     return 0;

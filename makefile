@@ -1,4 +1,4 @@
-CC=g++
+CC=clang++
 CFLAGS=-c -Wall -Iinclude
 LDFLAGS=-lsdl `sdl-config --cflags --libs` -framework OpenGL
 SOURCES=flamingo.cpp init.cpp screen.cpp event.cpp render.cpp
