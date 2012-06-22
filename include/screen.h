@@ -19,9 +19,9 @@ class Screen {
         SDL_Rect local_rect;
         Eigen::Matrix<float,4,3> bound_rect;
 
-        void load_identity();
-        void draw();
-        void transform(Eigen::Affine3f transform);
+        void LoadIdentity();
+        void Draw();
+        void Transform(Eigen::Affine3f transform);
 };
 
 #endif

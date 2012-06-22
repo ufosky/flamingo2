@@ -1,7 +1,7 @@
 
 #include "flamingo.h"
 
-int Flamingo::init() {
+int Flamingo::Init() {
 
     if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
         return -1;
@@ -26,8 +26,8 @@ int Flamingo::init() {
     
 
     // Create window
-    display_size = (SDL_Rect){0, 0, 1024, 768};
-    if ((Surf_display = SDL_SetVideoMode(display_size.w, display_size.h, 32, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_OPENGL)) == NULL) {
+    _display_size = (SDL_Rect){0, 0, 1024, 768};
+    if ((_display = SDL_SetVideoMode(_display_size.w, _display_size.h, 32, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_OPENGL)) == NULL) {
         return -1;
     }
 
@@ -37,7 +37,7 @@ int Flamingo::init() {
     glEnable(GL_TEXTURE_2D);
 
     // Flamingo Settings
-    Screen s = Screen(&display_size);
+    Screen s = Screen(&_display_size);
     screens = std::list<Screen>();
     screens.push_back(s);
 
@@ -48,7 +48,7 @@ int Flamingo::init() {
     return 0;
 }
 
-void Flamingo::cleanup() {
+void Flamingo::Cleanup() {
 
     SDL_Quit();
 

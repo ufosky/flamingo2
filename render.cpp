@@ -4,7 +4,7 @@
 
 #include "flamingo.h"
 
-void Flamingo::render() {
+void Flamingo::Render() {
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -20,7 +20,7 @@ void Flamingo::render() {
         glOrtho(0, s.local_rect.w, 0, s.local_rect.h, 1, -1);
         glMatrixMode(GL_MODELVIEW);
 
-        s.draw();
+        s.Draw();
     }
 
     SDL_GL_SwapBuffers();

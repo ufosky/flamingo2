@@ -13,9 +13,9 @@ class Flamingo {
 
     private:
 
-        bool running;
-        SDL_Surface *Surf_display;
-        SDL_Rect display_size;
+        bool _running;
+        SDL_Surface *_display;
+        SDL_Rect _display_size;
         
         std::list<Screen> screens;
 
@@ -23,16 +23,16 @@ class Flamingo {
         Flamingo();
         ~Flamingo();
 
-        int execute();
+        int Execute();
 
-        int init();
-        int handle_events();
-        void step();
-        void render();
-        void cleanup();
+        int Init();
+        int HandleEvents();
+        void Step();
+        void Render();
+        void Cleanup();
 
-        void push_screen(Screen &screen);
-        void remove_screen(Screen &screen);
+        void PushScreen(Screen &screen);
+        void RemoveScreen(Screen &screen);
 };
 
 #endif

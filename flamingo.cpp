@@ -2,34 +2,34 @@
 #include "flamingo.h"
 
 Flamingo::Flamingo() {
-    running = true;
-    Surf_display = NULL;
+    _running = true;
+    _display = NULL;
 }
 
 Flamingo::~Flamingo() {
 
 }
 
-int Flamingo::execute() {
+int Flamingo::Execute() {
 
-    if (init() == -1) {
+    if (Init() == -1) {
         return -1;
     }
 
-    while (running) {
-        if (handle_events() == -1) {
-            running = false;
+    while (_running) {
+        if (HandleEvents() == -1) {
+            _running = false;
             break;
         }
-        step();
-        render();
+        Step();
+        Render();
     }
 
-    cleanup();
+    Cleanup();
     return 0;
 }
 
-void Flamingo::step() {
+void Flamingo::Step() {
 
 }
 
@@ -37,7 +37,7 @@ int main (int argc, char *arg[]) {
 
     Flamingo flamingo;
 
-    return flamingo.execute();
+    return flamingo.Execute();
 
 }
 
