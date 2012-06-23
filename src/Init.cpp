@@ -1,6 +1,8 @@
 
 #include "FL/Flamingo.h"
 
+#include "FL/Components/TestComponent.h"
+
 int Flamingo::Init() {
 
     if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
@@ -38,8 +40,14 @@ int Flamingo::Init() {
 
     // Flamingo
     //// Entity Manager
+    _entityManager = new EntityManager();
 
-    _entityManager = EntityManager();
+    Entity *e = _entityManager->CreateEntity();
+    _entityManager->AddComponent(e, new TestComponent());
+    Component *c = e->GetAs(1);
+    c->Process();
+    c->Process();
+    _entityManager->DestroyEntity(e);
 
     //// Screens
     Screen s = Screen(&_displaySize);
@@ -54,6 +62,8 @@ int Flamingo::Init() {
 }
 
 void Flamingo::Cleanup() {
+
+    delete _entityManager;
 
     SDL_Quit();
 

@@ -3,18 +3,19 @@
 #define _ENTITY_H_
 
 class Entity;
+typedef unsigned int EntityID;
 
 #include "FL/Entity/Component.h"
 #include "FL/Entity/EntityManager.h"
 #include <map>
 
-typedef unsigned int EntityID;
 
 class Entity {
 
     friend class EntityManager;
 
     public:
+        Entity(EntityID id);
         ~Entity();
 
         bool HasComponentType(ComponentType type);

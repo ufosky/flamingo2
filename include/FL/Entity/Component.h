@@ -2,26 +2,28 @@
 #ifndef _COMPONENT_H_
 #define _COMPONENT_H_
 
-#include "FL/Entity/Entity.h"
-#include <vector>
-
+class Component;
 typedef unsigned int ComponentType;
 typedef unsigned int ComponentID;
+
+#include "FL/Entity/Entity.h"
+#include <vector>
 
 class Component {
 
     friend class EntityManager;
 
     public:
-        virtual ~Component();
+        Component() {};
+        virtual ~Component() {};
 
-        virtual void Init();
-        virtual void Cleanup();
-        virtual void Process();
+        virtual void Init() = 0;
+        virtual void Cleanup() = 0;
+        virtual void Process() = 0;
 
-    private:
+    protected:
         ComponentType _type;
-        unsigned int _bit;
+        ComponentID _id;
         std::vector<ComponentType> _dependencies;
 
         Entity *_e;

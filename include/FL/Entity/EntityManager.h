@@ -15,19 +15,20 @@ class EntityManager {
         ~EntityManager();
 
         Entity *CreateEntity();
-        void DestroyEntity();
+        void DestroyEntity(Entity *e);
 
-        void AddComponent(Component *comp);
-        void RemoveComponent(Component *comp);
-        void RemoveComponents(ComponentType type);
+        void AddComponent(Entity *e,Component *comp);
+        void RemoveComponent(Entity *e, ComponentType type);
+        void RemoveComponent(Entity *e, Component *comp);
 
-        void GetComponents(Entity *e, ComponentType type);
+        Component *GetComponent(Entity *e, ComponentType type);
 
         void Process();
 
     protected:
         void _Process(ComponentType type);
 
+        EntityID _nextID;
         std::map<Entity *, std::map<ComponentType, Component *> > _components;
 };
 

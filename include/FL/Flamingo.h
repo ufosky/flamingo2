@@ -17,7 +17,7 @@ class Flamingo {
 
         bool _running;
 
-        EntityManager _entityManager;
+        EntityManager *_entityManager;
 
         SDL_Surface *_display;
         SDL_Rect _displaySize;
