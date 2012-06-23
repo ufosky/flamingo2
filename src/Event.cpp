@@ -1,5 +1,5 @@
 
-#include "flamingo.h"
+#include "FL/Flamingo.h"
 
 // Return -1 if execution should end
 // Return 0 otherwise
@@ -19,3 +19,4 @@ int Flamingo::HandleEvents() {
 
     return 0;
 }
+

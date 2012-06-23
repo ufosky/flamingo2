@@ -1,5 +1,5 @@
 
-#include "flamingo.h"
+#include "FL/Flamingo.h"
 
 int Flamingo::Init() {
 
@@ -26,8 +26,8 @@ int Flamingo::Init() {
     
 
     // Create window
-    _display_size = (SDL_Rect){0, 0, 1024, 768};
-    if ((_display = SDL_SetVideoMode(_display_size.w, _display_size.h, 32, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_OPENGL)) == NULL) {
+    _displaySize = (SDL_Rect){0, 0, 1024, 768};
+    if ((_display = SDL_SetVideoMode(_displaySize.w, _displaySize.h, 32, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_OPENGL)) == NULL) {
         return -1;
     }
 
@@ -36,14 +36,19 @@ int Flamingo::Init() {
     glClearDepth(1.0f);
     glEnable(GL_TEXTURE_2D);
 
-    // Flamingo Settings
-    Screen s = Screen(&_display_size);
-    screens = std::list<Screen>();
-    screens.push_back(s);
+    // Flamingo
+    //// Entity Manager
+
+    _entityManager = EntityManager();
+
+    //// Screens
+    Screen s = Screen(&_displaySize);
+    _screens = std::list<Screen>();
+    _screens.push_back(s);
 
     SDL_Rect r = {0, 240, 640, 240};
     s = Screen(&r);
-    screens.push_back(s);
+    _screens.push_back(s);
 
     return 0;
 }
@@ -53,3 +58,4 @@ void Flamingo::Cleanup() {
     SDL_Quit();
 
 }
+

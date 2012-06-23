@@ -7,17 +7,21 @@
 #include <SDL/SDL.h>
 #include <OpenGL/gl.h>
 
-#include "Screen.h"
+
+#include "FL/Entity/EntityManager.h"
+#include "FL/Screen.h"
 
 class Flamingo {
 
     private:
 
         bool _running;
+
+        EntityManager _entityManager;
+
         SDL_Surface *_display;
-        SDL_Rect _display_size;
-        
-        std::list<Screen> screens;
+        SDL_Rect _displaySize;
+        std::list<Screen> _screens;
 
     public:
         Flamingo();

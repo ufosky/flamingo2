@@ -1,6 +1,6 @@
 
 #include <OpenGL/gl.h>
-#include "Screen.h"
+#include "FL/Screen.h"
 
 Screen::Screen() {
 

@@ -2,7 +2,7 @@
 #include <iostream>
 #include <list>
 
-#include "flamingo.h"
+#include "FL/Flamingo.h"
 
 void Flamingo::Render() {
 
@@ -10,7 +10,7 @@ void Flamingo::Render() {
 
     std::list<Screen>::const_iterator iterator;
     Screen s;
-    for (iterator = screens.begin(); iterator != screens.end(); ++iterator) {
+    for (iterator = _screens.begin(); iterator != _screens.end(); ++iterator) {
 
         s = *iterator;
 

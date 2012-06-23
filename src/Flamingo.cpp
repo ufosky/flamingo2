@@ -1,5 +1,5 @@
 
-#include "flamingo.h"
+#include "FL/Flamingo.h"
 
 Flamingo::Flamingo() {
     _running = true;
