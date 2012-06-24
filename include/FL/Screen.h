@@ -2,7 +2,11 @@
 #ifndef SCREEN_H_
 #define SCREEN_H_
 
+#ifndef FLCOCOA
 #include <SDL/SDL.h>
+#else
+#include "SDL.h"
+#endif
 #include <Eigen/Dense>
 #include <Eigen/Geometry>
 

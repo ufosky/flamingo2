@@ -39,11 +39,11 @@ void Flamingo::_Step() {
 
 }
 
-int main (int argc, char *arg[]) {
-
-    Flamingo flamingo;
-
-    return flamingo.Execute();
-
-}
+//int main (int argc, char *arg[]) {
+//
+//    Flamingo flamingo;
+//
+//    return flamingo.Execute();
+//
+//}
 

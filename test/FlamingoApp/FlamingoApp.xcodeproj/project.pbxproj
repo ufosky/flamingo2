@@ -1,0 +1,307 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A93AE2311597C58F002F1FE4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93AE2301597C58F002F1FE4 /* Cocoa.framework */; };
+		A93AE23B1597C58F002F1FE4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A93AE2391597C58F002F1FE4 /* InfoPlist.strings */; };
+		A93AE24E1597C5C7002F1FE4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A93AE24D1597C5C7002F1FE4 /* main.cpp */; };
+		A93AE2501597C61E002F1FE4 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93AE24F1597C61E002F1FE4 /* OpenGL.framework */; };
+		A93AE4D81597C946002F1FE4 /* libflamingo.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A93AE4D71597C946002F1FE4 /* libflamingo.dylib */; };
+		A93AE4DF1597CD56002F1FE4 /* libflamingo.dylib in Resources */ = {isa = PBXBuildFile; fileRef = A93AE4D71597C946002F1FE4 /* libflamingo.dylib */; };
+		A93AE4E41597CDBB002F1FE4 /* libSDL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A93AE4E21597CDBB002F1FE4 /* libSDL.a */; };
+		A93AE4E51597CDBB002F1FE4 /* libSDLmain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A93AE4E31597CDBB002F1FE4 /* libSDLmain.a */; };
+		A93AE4E61597CDD3002F1FE4 /* libSDL.a in Resources */ = {isa = PBXBuildFile; fileRef = A93AE4E21597CDBB002F1FE4 /* libSDL.a */; };
+		A93AE4E71597CDD3002F1FE4 /* libSDLmain.a in Resources */ = {isa = PBXBuildFile; fileRef = A93AE4E31597CDBB002F1FE4 /* libSDLmain.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A93AE22C1597C58F002F1FE4 /* FlamingoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlamingoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A93AE2301597C58F002F1FE4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		A93AE2331597C58F002F1FE4 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		A93AE2341597C58F002F1FE4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		A93AE2351597C58F002F1FE4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A93AE2381597C58F002F1FE4 /* FlamingoApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FlamingoApp-Info.plist"; sourceTree = "<group>"; };
+		A93AE23A1597C58F002F1FE4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A93AE23E1597C58F002F1FE4 /* FlamingoApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlamingoApp-Prefix.pch"; sourceTree = "<group>"; };
+		A93AE24D1597C5C7002F1FE4 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		A93AE24F1597C61E002F1FE4 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		A93AE4D71597C946002F1FE4 /* libflamingo.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libflamingo.dylib; path = ../../lib/libflamingo.dylib; sourceTree = "<group>"; };
+		A93AE4E21597CDBB002F1FE4 /* libSDL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDL.a; path = FlamingoApp/lib/libSDL.a; sourceTree = "<group>"; };
+		A93AE4E31597CDBB002F1FE4 /* libSDLmain.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDLmain.a; path = FlamingoApp/lib/libSDLmain.a; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A93AE2291597C58F002F1FE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A93AE4E41597CDBB002F1FE4 /* libSDL.a in Frameworks */,
+				A93AE4E51597CDBB002F1FE4 /* libSDLmain.a in Frameworks */,
+				A93AE2311597C58F002F1FE4 /* Cocoa.framework in Frameworks */,
+				A93AE2501597C61E002F1FE4 /* OpenGL.framework in Frameworks */,
+				A93AE4D81597C946002F1FE4 /* libflamingo.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A93AE2211597C58F002F1FE4 = {
+			isa = PBXGroup;
+			children = (
+				A93AE2361597C58F002F1FE4 /* FlamingoApp */,
+				A93AE22F1597C58F002F1FE4 /* Frameworks */,
+				A93AE22D1597C58F002F1FE4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A93AE22D1597C58F002F1FE4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A93AE22C1597C58F002F1FE4 /* FlamingoApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A93AE22F1597C58F002F1FE4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A93AE4E21597CDBB002F1FE4 /* libSDL.a */,
+				A93AE4E31597CDBB002F1FE4 /* libSDLmain.a */,
+				A93AE4D71597C946002F1FE4 /* libflamingo.dylib */,
+				A93AE2301597C58F002F1FE4 /* Cocoa.framework */,
+				A93AE24F1597C61E002F1FE4 /* OpenGL.framework */,
+				A93AE2321597C58F002F1FE4 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A93AE2321597C58F002F1FE4 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A93AE2331597C58F002F1FE4 /* AppKit.framework */,
+				A93AE2341597C58F002F1FE4 /* CoreData.framework */,
+				A93AE2351597C58F002F1FE4 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		A93AE2361597C58F002F1FE4 /* FlamingoApp */ = {
+			isa = PBXGroup;
+			children = (
+				A93AE24D1597C5C7002F1FE4 /* main.cpp */,
+				A93AE2371597C58F002F1FE4 /* Supporting Files */,
+			);
+			path = FlamingoApp;
+			sourceTree = "<group>";
+		};
+		A93AE2371597C58F002F1FE4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A93AE2381597C58F002F1FE4 /* FlamingoApp-Info.plist */,
+				A93AE2391597C58F002F1FE4 /* InfoPlist.strings */,
+				A93AE23E1597C58F002F1FE4 /* FlamingoApp-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A93AE22B1597C58F002F1FE4 /* FlamingoApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A93AE24A1597C590002F1FE4 /* Build configuration list for PBXNativeTarget "FlamingoApp" */;
+			buildPhases = (
+				A93AE2281597C58F002F1FE4 /* Sources */,
+				A93AE2291597C58F002F1FE4 /* Frameworks */,
+				A93AE22A1597C58F002F1FE4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlamingoApp;
+			productName = FlamingoApp;
+			productReference = A93AE22C1597C58F002F1FE4 /* FlamingoApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A93AE2231597C58F002F1FE4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = A93AE2261597C58F002F1FE4 /* Build configuration list for PBXProject "FlamingoApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A93AE2211597C58F002F1FE4;
+			productRefGroup = A93AE22D1597C58F002F1FE4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A93AE22B1597C58F002F1FE4 /* FlamingoApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A93AE22A1597C58F002F1FE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A93AE4E61597CDD3002F1FE4 /* libSDL.a in Resources */,
+				A93AE4E71597CDD3002F1FE4 /* libSDLmain.a in Resources */,
+				A93AE4DF1597CD56002F1FE4 /* libflamingo.dylib in Resources */,
+				A93AE23B1597C58F002F1FE4 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A93AE2281597C58F002F1FE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A93AE24E1597C5C7002F1FE4 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A93AE2391597C58F002F1FE4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A93AE23A1597C58F002F1FE4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A93AE2481597C590002F1FE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "../../include/**";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A93AE2491597C590002F1FE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "../../include/**";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A93AE24B1597C590002F1FE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(LOCAL_LIBRARY_DIR)/Frameworks/SDL.framework\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FlamingoApp/FlamingoApp-Prefix.pch";
+				INFOPLIST_FILE = "FlamingoApp/FlamingoApp-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/sdl/1.2.15/lib,
+					"\"$(SRCROOT)/../../lib\"",
+					"\"$(SRCROOT)/FlamingoApp/lib\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A93AE24C1597C590002F1FE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(LOCAL_LIBRARY_DIR)/Frameworks/SDL.framework\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FlamingoApp/FlamingoApp-Prefix.pch";
+				INFOPLIST_FILE = "FlamingoApp/FlamingoApp-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/sdl/1.2.15/lib,
+					"\"$(SRCROOT)/../../lib\"",
+					"\"$(SRCROOT)/FlamingoApp/lib\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A93AE2261597C58F002F1FE4 /* Build configuration list for PBXProject "FlamingoApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A93AE2481597C590002F1FE4 /* Debug */,
+				A93AE2491597C590002F1FE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A93AE24A1597C590002F1FE4 /* Build configuration list for PBXNativeTarget "FlamingoApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A93AE24B1597C590002F1FE4 /* Debug */,
+				A93AE24C1597C590002F1FE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A93AE2231597C58F002F1FE4 /* Project object */;
+}

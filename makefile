@@ -1,8 +1,8 @@
 CC=clang++
 CFLAGS=-c -Wall -Iinclude -fPIC
-LDFLAGS=`sdl-config --cflags --libs` -framework OpenGL -shared
+LDFLAGS=`sdl-config --libs` -framework OpenGL -dynamiclib
 
-TARGET    = libflamingo.so
+TARGET    = libflamingo.dylib
 LIBNAME   = flamingo
 
 SRCEXT    = cpp
@@ -13,7 +13,7 @@ LIBDIR    = lib
 
 SRCS     := $(shell find $(SRCDIR) -name '*.$(SRCEXT)')
 SRCDIRS  := $(shell find $(SRCDIR) -name '*.$(SRCEXT)' -exec dirname {} \; | uniq)
-TESTDIRS := $(shell find $(TESTDIR) -name '*.$(SRCEXT)' -exec dirname {} \; | uniq)
+TESTDIRS := $(shell find $(TESTDIR) -name 'makefile' -exec dirname {} \; | uniq)
 OBJS     := $(patsubst %.$(SRCEXT),$(OBJDIR)/%.o,$(SRCS))
 
 all: $(LIBDIR)/$(TARGET) tests
@@ -21,7 +21,7 @@ all: $(LIBDIR)/$(TARGET) tests
 $(LIBDIR)/$(TARGET): buildrepo $(OBJS)
 	@mkdir -p `dirname $@`
 	@$(RM) -f $(LIBDIR)/$(TARGET)
-	$(CC) $(OBJS) $(LDFLAGS) -o ./$@
+	$(CC) $(OBJS) $(LDFLAGS) -o `pwd`/$@
 
 $(OBJDIR)/%.o: %.$(SRCEXT)
 #	@$(call make-depend,$<,$@,$(subst .o,.d,$@))

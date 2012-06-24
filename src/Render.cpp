@@ -3,6 +3,7 @@
 #include <list>
 
 #include "FL/Flamingo.h"
+#include <OpenGL/gl.h>
 
 void Flamingo::_Render() {
 

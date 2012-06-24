@@ -4,7 +4,11 @@
 
 #include <list>
 
+#ifndef FLCOCOA
 #include <SDL/SDL.h>
+#else
+#include "SDL.h"
+#endif
 #include <OpenGL/gl.h>
 
 
