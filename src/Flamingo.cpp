@@ -25,17 +25,17 @@ int Flamingo::Execute() {
         _Render();
     }
 
-    Cleanup();
+    _Cleanup();
     return 0;
 }
 
 void Flamingo::_Step() {
 
-    Flamingo::PreStep();
+    this->PreStep();
 
     _entityManager->Process();
 
-    Flamingo::PostStep();
+    this->PostStep();
 
 }
 

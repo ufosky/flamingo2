@@ -49,12 +49,12 @@ int Flamingo::_Init() {
     s = Screen(&r);
     _screens.push_back(s);
 
-    return Flamingo::Init();
+    return this->Init();
 }
 
 void Flamingo::_Cleanup() {
 
-    Flamingo::Cleanup();
+    this->Cleanup();
 
     delete _entityManager;
 
