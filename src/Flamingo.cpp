@@ -12,26 +12,30 @@ Flamingo::~Flamingo() {
 
 int Flamingo::Execute() {
 
-    if (Init() == -1) {
+    if (_Init() == -1) {
         return -1;
     }
 
     while (_running) {
-        if (HandleEvents() == -1) {
+        if (_HandleEvents() == -1) {
             _running = false;
             break;
         }
-        Step();
-        Render();
+        _Step();
+        _Render();
     }
 
     Cleanup();
     return 0;
 }
 
-void Flamingo::Step() {
+void Flamingo::_Step() {
+
+    Flamingo::PreStep();
 
     _entityManager->Process();
+
+    Flamingo::PostStep();
 
 }
 

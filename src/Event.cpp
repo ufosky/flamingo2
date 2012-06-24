@@ -7,7 +7,7 @@
 
 SDL_Event sdl_event;
 
-int Flamingo::HandleEvents() {
+int Flamingo::_HandleEvents() {
 
     while(SDL_PollEvent(&sdl_event)) {
         if (sdl_event.type == SDL_QUIT) {

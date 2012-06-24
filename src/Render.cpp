@@ -4,7 +4,7 @@
 
 #include "FL/Flamingo.h"
 
-void Flamingo::Render() {
+void Flamingo::_Render() {
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 

@@ -14,9 +14,9 @@
 class Flamingo {
 
     private:
-
         bool _running;
 
+    protected:
         EntityManager *_entityManager;
 
         SDL_Surface *_display;
@@ -29,14 +29,21 @@ class Flamingo {
 
         int Execute();
 
-        int Init();
-        int HandleEvents();
-        void Step();
-        void Render();
-        void Cleanup();
+        virtual int Init() { return 0; };
+        virtual void PreStep() {};
+        virtual void PostStep() {};
+        virtual void Cleanup() {};
 
         void PushScreen(Screen &screen);
         void RemoveScreen(Screen &screen);
+
+    private:
+        int _Init();
+        int _HandleEvents();
+        void _Step();
+        void _Render();
+        void _Cleanup();
+
 };
 
 #endif

@@ -1,32 +1,41 @@
 CC=clang++
-CFLAGS=-c -Wall -Iinclude
-LDFLAGS=-lsdl `sdl-config --cflags --libs` -framework OpenGL
+CFLAGS=-c -Wall -Iinclude -fPIC
+LDFLAGS=`sdl-config --cflags --libs` -framework OpenGL -shared
 
-TARGET   = flamingo
+TARGET    = libflamingo.so
+LIBNAME   = flamingo
 
-SRCEXT   = cpp
-SRCDIR   = src
-OBJDIR   = build
-BINDIR   = bin
+SRCEXT    = cpp
+SRCDIR    = src
+TESTDIR   = test
+OBJDIR    = build
+LIBDIR    = lib
 
-SRCS    := $(shell find $(SRCDIR) -name '*.$(SRCEXT)')
-SRCDIRS := $(shell find . -name '*.$(SRCEXT)' -exec dirname {} \; | uniq)
-OBJS    := $(patsubst %.$(SRCEXT),$(OBJDIR)/%.o,$(SRCS))
+SRCS     := $(shell find $(SRCDIR) -name '*.$(SRCEXT)')
+SRCDIRS  := $(shell find $(SRCDIR) -name '*.$(SRCEXT)' -exec dirname {} \; | uniq)
+TESTDIRS := $(shell find $(TESTDIR) -name '*.$(SRCEXT)' -exec dirname {} \; | uniq)
+OBJS     := $(patsubst %.$(SRCEXT),$(OBJDIR)/%.o,$(SRCS))
 
-all: $(BINDIR)/$(TARGET)
+all: $(LIBDIR)/$(TARGET) tests
 
-$(BINDIR)/$(TARGET) : buildrepo $(OBJS)
+$(LIBDIR)/$(TARGET): buildrepo $(OBJS)
 	@mkdir -p `dirname $@`
-	$(CC) $(OBJS) $(LDFLAGS) -o $@
-	
+	@$(RM) -f $(LIBDIR)/$(TARGET)
+	$(CC) $(OBJS) $(LDFLAGS) -o ./$@
 
 $(OBJDIR)/%.o: %.$(SRCEXT)
 #	@$(call make-depend,$<,$@,$(subst .o,.d,$@))
 	$(CC) $(CFLAGS) $< -o $@
 
+tests: $(LIBDIR)/$(TARGET)
+	@echo ""
+	@echo "Building Tests..."
+	@for dir in $(TESTDIRS); do $(MAKE) -C $$dir; done;
+
 clean:
 	@$(RM) -r $(OBJDIR)/*
-	@$(RM) $(BINDIR)/$(TARGET)
+	@$(RM) -r $(LIBDIR)/*
+	@for dir in $(TESTDIRS); do $(MAKE) clean -C $$dir; done;
 
 buildrepo:
 	@$(call make-repo)
@@ -39,6 +48,6 @@ define make-repo
 endef
 
 #define make-depend
-#  H=$($(CC) -MM -MF $3 -MP -MT $2 $(CFLAGS) $1 -vl)
+#  $(CC) -MM -MF $3 -MP -MT $2 $(CFLAGS) $1 -vl
 #endef
 
