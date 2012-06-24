@@ -3,12 +3,14 @@
 
 typedef std::map<Entity *, std::map<ComponentType, Component *> >::iterator EntityIterator;
 typedef std::map<ComponentType, Component *>::iterator ComponentIterator;
+typedef std::vector<ComponentType>::const_iterator DependencyIterator;
 
 
 EntityManager::EntityManager() {
 
     _nextID = 0;
     _components = std::map<Entity *, std::map<ComponentType, Component *> >();
+    _processed = std::set<ComponentType>();
 }
 
 EntityManager::~EntityManager() {
@@ -65,5 +67,29 @@ Component *EntityManager::GetComponent(Entity *e, ComponentType type) {
 
 void EntityManager::Process() {
 
+    for (EntityIterator i = _components.begin(); i != _components.end(); i++) {
+        for (ComponentIterator j = i->second.begin(); j != i->second.end(); j++) {
+            EntityManager::_Process(i->first, j->second);
+        }
+    }
+
+    _processed.clear();
+
+}
+
+void EntityManager::_Process(Entity *e, Component *comp) {
+
+    if (_processed.find(comp->_type) != _processed.end()) {
+        return;
+    }
+
+    for (DependencyIterator i = comp->_dependencies.begin(); i != comp->_dependencies.end(); i++) {
+        if (_processed.find(*i) == _processed.end()) {
+            EntityManager::_Process(e, _components[e][*i]);
+        }
+    }
+
+    comp->Process();
+    _processed.insert(comp->_type);
 }
 

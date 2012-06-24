@@ -15,9 +15,9 @@ class TestComponent : public Component {
 
         void Init() {};
         void Process() {
-            std::cout << "Processed this TestComponent ";
-            std::cout << ++times_processed;
-            std::cout << " times!\n";
+            //std::cout << "Processed this TestComponent ";
+            //std::cout << ++times_processed;
+            //std::cout << " times!\n";
         };
         void Cleanup() {};
 };

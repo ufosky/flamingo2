@@ -42,12 +42,9 @@ int Flamingo::Init() {
     //// Entity Manager
     _entityManager = new EntityManager();
 
+    // Test
     Entity *e = _entityManager->CreateEntity();
     _entityManager->AddComponent(e, new TestComponent());
-    Component *c = e->GetAs(1);
-    c->Process();
-    c->Process();
-    _entityManager->DestroyEntity(e);
 
     //// Screens
     Screen s = Screen(&_displaySize);

@@ -7,6 +7,7 @@ class EntityManager;
 #include "FL/Entity/Entity.h"
 #include "FL/Entity/Component.h"
 #include <map>
+#include <set>
 
 class EntityManager {
 
@@ -26,10 +27,11 @@ class EntityManager {
         void Process();
 
     protected:
-        void _Process(ComponentType type);
+        void _Process(Entity *e, Component *comp);
 
         EntityID _nextID;
         std::map<Entity *, std::map<ComponentType, Component *> > _components;
+        std::set<ComponentType> _processed;
 };
 
 #endif

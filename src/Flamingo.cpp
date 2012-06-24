@@ -31,6 +31,8 @@ int Flamingo::Execute() {
 
 void Flamingo::Step() {
 
+    _entityManager->Process();
+
 }
 
 int main (int argc, char *arg[]) {
