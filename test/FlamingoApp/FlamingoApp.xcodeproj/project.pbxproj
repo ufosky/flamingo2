@@ -255,6 +255,7 @@
 					"\"$(SRCROOT)/../../lib\"",
 					"\"$(SRCROOT)/FlamingoApp/lib\"",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -276,6 +277,7 @@
 					"\"$(SRCROOT)/../../lib\"",
 					"\"$(SRCROOT)/FlamingoApp/lib\"",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -300,6 +302,7 @@
 				A93AE24C1597C590002F1FE4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,5 +1,5 @@
-build/
-bin/
-lib/
+/build/
+/bin/
+/lib/
 .DS_STORE
 .DS_STORE?
