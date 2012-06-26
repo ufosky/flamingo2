@@ -7,20 +7,16 @@ class TestComponent : public Component {
 
     public:
         static int times_processed;
-        TestComponent() {
-
-            _type = 1;
-        
-        }
 
         void Init() {};
         void Process() {
-            std::cout << "Processed this TestComponent ";
-            std::cout << ++times_processed;
-            std::cout << " times!\n";
+			std::cout << "Processed this TestComponent " << ++times_processed << " times!\n";
         };
         void Cleanup() {};
+
+	protected:
+		void _SetType() { _type = 100; };
 };
 
-int TestComponent::times_processed = 0;
+int TestComponent::times_processed = 1;
 

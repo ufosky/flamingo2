@@ -27,6 +27,10 @@ class Component {
         std::vector<ComponentType> _dependencies;
 
         Entity *_e;
+		
+		// Use to set the _type and the _dependencies
+		virtual void _SetType() = 0;
+
 };
 
 #endif

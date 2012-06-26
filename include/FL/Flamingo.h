@@ -2,7 +2,7 @@
 #ifndef FLAMINGO_H_
 #define FLAMINGO_H_ 
 
-#include <list>
+#include <vector>
 
 #ifndef FLCOCOA
 #include <SDL/SDL.h>
@@ -13,7 +13,8 @@
 
 
 #include "FL/Entity/EntityManager.h"
-#include "FL/Screen.h"
+#include "FL/Components/FLComponents.h"
+//#include "FL/Screen.h"
 
 class Flamingo {
 
@@ -25,7 +26,7 @@ class Flamingo {
 
         SDL_Surface *_display;
         SDL_Rect _displaySize;
-        std::list<Screen> _screens;
+        std::vector<ScreenComp *> _screens;
 
     public:
         Flamingo();
@@ -38,8 +39,8 @@ class Flamingo {
         virtual void PostStep() {};
         virtual void Cleanup() {};
 
-        void PushScreen(Screen &screen);
-        void RemoveScreen(Screen &screen);
+        //void PushScreen(Screen &screen);
+        //void RemoveScreen(Screen &screen);
 
     private:
         int _Init();

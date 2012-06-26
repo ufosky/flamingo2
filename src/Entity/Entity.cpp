@@ -1,6 +1,8 @@
 
 #include "FL/Entity/Entity.h"
 
+#include <iostream>
+
 Entity::Entity(EntityID id) {
     _id = id;
 }

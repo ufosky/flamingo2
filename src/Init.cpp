@@ -1,5 +1,6 @@
 
 #include "FL/Flamingo.h"
+#include "FL/Components/FLComponents.h"
 
 int Flamingo::_Init() {
 
@@ -41,13 +42,17 @@ int Flamingo::_Init() {
     _entityManager = new EntityManager();
 
     //// Screens
-    Screen s = Screen(&_displaySize);
-    _screens = std::list<Screen>();
-    _screens.push_back(s);
+	_screens = std::vector<ScreenComp *>();
+	_entityManager->RegisterComponentVector(FL_COMPTYPE_SCREEN, (std::vector<Component *> *)&_screens);
 
-    SDL_Rect r = {0, 240, 640, 240};
-    s = Screen(&r);
-    _screens.push_back(s);
+	SDL_Rect r = {0, 240, 640, 240};
+
+	Entity *e = _entityManager->CreateEntity();
+	_entityManager->AddComponent(e, new ScreenComp(&_displaySize));
+
+	e = _entityManager->CreateEntity();
+	_entityManager->AddComponent(e, new ScreenComp(&r));
+	//_entityManager->RemoveComponent(e, FL_COMPTYPE_SCREEN);
 
     return this->Init();
 }
