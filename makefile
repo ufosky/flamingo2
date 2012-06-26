@@ -2,7 +2,7 @@ CC=clang++
 CFLAGS=-c -Wall -Iinclude -fPIC
 LDFLAGS=`sdl-config --libs` -framework OpenGL -dynamiclib
 
-TARGET    = libflamingo.dylib
+TARGET    = libflamingo.a
 LIBNAME   = flamingo
 
 SRCEXT    = cpp
@@ -21,7 +21,7 @@ all: $(LIBDIR)/$(TARGET) tests
 $(LIBDIR)/$(TARGET): buildrepo $(OBJS)
 	@mkdir -p `dirname $@`
 	@$(RM) -f $(LIBDIR)/$(TARGET)
-	$(CC) $(OBJS) $(LDFLAGS) -o `pwd`/$@
+	ar rs $@ $(OBJS)
 
 $(OBJDIR)/%.o: %.$(SRCEXT)
 #	@$(call make-depend,$<,$@,$(subst .o,.d,$@))

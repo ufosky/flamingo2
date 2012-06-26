@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		176527D0159A067600303624 /* libflamingo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 176527CF159A067600303624 /* libflamingo.a */; };
+		176527D1159A069100303624 /* libflamingo.a in Resources */ = {isa = PBXBuildFile; fileRef = 176527CF159A067600303624 /* libflamingo.a */; };
 		A93AE2311597C58F002F1FE4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93AE2301597C58F002F1FE4 /* Cocoa.framework */; };
 		A93AE23B1597C58F002F1FE4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A93AE2391597C58F002F1FE4 /* InfoPlist.strings */; };
 		A93AE24E1597C5C7002F1FE4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A93AE24D1597C5C7002F1FE4 /* main.cpp */; };
 		A93AE2501597C61E002F1FE4 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93AE24F1597C61E002F1FE4 /* OpenGL.framework */; };
-		A93AE4D81597C946002F1FE4 /* libflamingo.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A93AE4D71597C946002F1FE4 /* libflamingo.dylib */; };
-		A93AE4DF1597CD56002F1FE4 /* libflamingo.dylib in Resources */ = {isa = PBXBuildFile; fileRef = A93AE4D71597C946002F1FE4 /* libflamingo.dylib */; };
 		A93AE4E41597CDBB002F1FE4 /* libSDL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A93AE4E21597CDBB002F1FE4 /* libSDL.a */; };
 		A93AE4E51597CDBB002F1FE4 /* libSDLmain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A93AE4E31597CDBB002F1FE4 /* libSDLmain.a */; };
 		A93AE4E61597CDD3002F1FE4 /* libSDL.a in Resources */ = {isa = PBXBuildFile; fileRef = A93AE4E21597CDBB002F1FE4 /* libSDL.a */; };
@@ -20,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		176527CF159A067600303624 /* libflamingo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libflamingo.a; path = ../../lib/libflamingo.a; sourceTree = "<group>"; };
 		A93AE22C1597C58F002F1FE4 /* FlamingoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlamingoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93AE2301597C58F002F1FE4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A93AE2331597C58F002F1FE4 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -30,7 +31,6 @@
 		A93AE23E1597C58F002F1FE4 /* FlamingoApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlamingoApp-Prefix.pch"; sourceTree = "<group>"; };
 		A93AE24D1597C5C7002F1FE4 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A93AE24F1597C61E002F1FE4 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		A93AE4D71597C946002F1FE4 /* libflamingo.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libflamingo.dylib; path = ../../lib/libflamingo.dylib; sourceTree = "<group>"; };
 		A93AE4E21597CDBB002F1FE4 /* libSDL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDL.a; path = FlamingoApp/lib/libSDL.a; sourceTree = "<group>"; };
 		A93AE4E31597CDBB002F1FE4 /* libSDLmain.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDLmain.a; path = FlamingoApp/lib/libSDLmain.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -40,11 +40,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				176527D0159A067600303624 /* libflamingo.a in Frameworks */,
 				A93AE4E41597CDBB002F1FE4 /* libSDL.a in Frameworks */,
 				A93AE4E51597CDBB002F1FE4 /* libSDLmain.a in Frameworks */,
 				A93AE2311597C58F002F1FE4 /* Cocoa.framework in Frameworks */,
 				A93AE2501597C61E002F1FE4 /* OpenGL.framework in Frameworks */,
-				A93AE4D81597C946002F1FE4 /* libflamingo.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,7 +73,7 @@
 			children = (
 				A93AE4E21597CDBB002F1FE4 /* libSDL.a */,
 				A93AE4E31597CDBB002F1FE4 /* libSDLmain.a */,
-				A93AE4D71597C946002F1FE4 /* libflamingo.dylib */,
+				176527CF159A067600303624 /* libflamingo.a */,
 				A93AE2301597C58F002F1FE4 /* Cocoa.framework */,
 				A93AE24F1597C61E002F1FE4 /* OpenGL.framework */,
 				A93AE2321597C58F002F1FE4 /* Other Frameworks */,
@@ -160,9 +160,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				176527D1159A069100303624 /* libflamingo.a in Resources */,
 				A93AE4E61597CDD3002F1FE4 /* libSDL.a in Resources */,
 				A93AE4E71597CDD3002F1FE4 /* libSDLmain.a in Resources */,
-				A93AE4DF1597CD56002F1FE4 /* libflamingo.dylib in Resources */,
 				A93AE23B1597C58F002F1FE4 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,10 +242,7 @@
 		A93AE24B1597C590002F1FE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(LOCAL_LIBRARY_DIR)/Frameworks/SDL.framework\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FlamingoApp/FlamingoApp-Prefix.pch";
 				INFOPLIST_FILE = "FlamingoApp/FlamingoApp-Info.plist";
@@ -264,10 +261,7 @@
 		A93AE24C1597C590002F1FE4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(LOCAL_LIBRARY_DIR)/Frameworks/SDL.framework\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FlamingoApp/FlamingoApp-Prefix.pch";
 				INFOPLIST_FILE = "FlamingoApp/FlamingoApp-Info.plist";
