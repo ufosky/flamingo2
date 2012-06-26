@@ -1,4 +1,3 @@
-
 #include "FL/Entity/EntityManager.h"
 
 
@@ -7,26 +6,6 @@
 typedef std::map<Entity *, std::map<ComponentType, Component *> >::iterator EntityIterator;
 typedef std::map<ComponentType, Component *>::iterator ComponentIterator;
 typedef std::vector<ComponentType>::const_iterator DependencyIterator;
-//typedef std::map<ComponentType, std::vector<Component *> *>::iterator RegisteredVectorIterator;
-
-// Search in a registered vector for a component (must do this during removal of a component)
-// Assumes vector elements have strictly increasing _ids. 
-int EntityManager::_RegisteredComponentVectorSearch(std::vector<Component *> *v, Component *comp) {
-	
-	int s = 0, e = v->size(), m;
-	while (e >= s) {
-    	m = (s + e) / 2;
- 
-     	if ((*v)[m]->_id < comp->_id) {
-        	s = m + 1;
-      	} else if ((*v)[m]->_id > comp->_id) {
-        	e = m - 1;
-      	} else {
-        	return m;
-		}
-  }
-  return -1;
-}
 
 
 EntityManager::EntityManager() {
@@ -70,6 +49,33 @@ void EntityManager::_DestroyComponents(Entity *e) {
 	_components[e].clear();
 }
 
+void EntityManager::_DestroyComponent(Entity *e, ComponentType type) {
+
+	_RemoveComponentFromRegisteredVector(type, _components[e][type]);
+	delete _components[e][type];
+	_components[e].erase(type);
+
+}
+
+// Search in a registered vector for a component (must do this during removal of a component)
+// Assumes vector elements have strictly increasing _ids. 
+int EntityManager::_RegisteredComponentVectorSearch(std::vector<Component *> *v, Component *comp) {
+	
+	int s = 0, e = v->size(), m;
+	while (e >= s) {
+    	m = (s + e) / 2;
+ 
+     	if ((*v)[m]->_id < comp->_id) {
+        	s = m + 1;
+      	} else if ((*v)[m]->_id > comp->_id) {
+        	e = m - 1;
+      	} else {
+        	return m;
+		}
+  }
+  return -1;
+}
+
 void EntityManager::_RemoveComponentFromRegisteredVector(ComponentType type, Component *comp) {
 	if (_registeredComponentVectors.count(type)) {
 
@@ -77,14 +83,6 @@ void EntityManager::_RemoveComponentFromRegisteredVector(ComponentType type, Com
 		int i = _RegisteredComponentVectorSearch(v, comp);
 		v->erase(v->begin() + i);
 	}
-
-}
-
-void EntityManager::_DestroyComponent(Entity *e, ComponentType type) {
-
-	_RemoveComponentFromRegisteredVector(type, _components[e][type]);
-	delete _components[e][type];
-	_components[e].erase(type);
 
 }
 
