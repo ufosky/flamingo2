@@ -13,11 +13,9 @@ class ScreenComp : public Component {
 	public:
 		ScreenComp();
         ScreenComp(SDL_Rect *local);
-        ScreenComp(SDL_Rect *local, Eigen::Matrix<float,4,3> *bound);
 		~ScreenComp();
         
 		SDL_Rect local_rect;
-        Eigen::Matrix<float,4,3> bound_rect;
 
 		void Init();
 		void Process();
@@ -32,3 +30,4 @@ class ScreenComp : public Component {
 };
 
 #endif
+
