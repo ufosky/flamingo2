@@ -27,6 +27,7 @@ class Flamingo {
         SDL_Surface *_display;
         SDL_Rect _displaySize;
         std::vector<ScreenComp *> _screens;
+        std::vector<RenderableComp *> _renderables;
 
     public:
         Flamingo();

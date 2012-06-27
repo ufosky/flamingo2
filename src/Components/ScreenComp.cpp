@@ -1,5 +1,6 @@
 
 #include "FL/Components/ScreenComp.h"
+
 #include <OpenGL/gl.h>
 
 ScreenComp::ScreenComp() {
@@ -28,12 +29,44 @@ void ScreenComp::Cleanup() {
 
 }
 
-void ScreenComp::Draw() {
+void ScreenComp::PreDraw() {
+    _LoadIdentity();
     glBegin(GL_QUADS);
         glColor3f(1, 0, 0); glVertex2f(0, 0);
         glColor3f(1, 1, 0); glVertex2f(local_rect.w, 0);
         glColor3f(1, 0, 1); glVertex2f(local_rect.w, local_rect.h);
         glColor3f(1, 1, 1); glVertex2f(0, local_rect.h);
     glEnd();
+}
+
+void ScreenComp::Draw(RenderableComp *comp) {
+    _LoadIdentity();
+
+    PositionComp *pos = (PositionComp *)comp->entity->GetAs(FL_COMPTYPE_POSITION);
+    PositionComp *spos = (PositionComp *)entity->GetAs(FL_COMPTYPE_POSITION);
+
+    glColor3f(0, 0, 0);
+    glTranslatef(512, 384, 0);
+    glTranslatef(pos->pos[0], pos->pos[1], 0);
+    
+    // Test
+    glBegin(GL_QUADS);
+        glVertex2f(pos->size(0,0), pos->size(1,0));
+        glVertex2f(pos->size(0,1), pos->size(1,1));
+        glVertex2f(pos->size(0,2), pos->size(1,2));
+        glVertex2f(pos->size(0,3), pos->size(1,3));
+        //glVertex2f(-10, -10);
+        //glVertex2f(10, -10);
+        //glVertex2f(10, 10);
+        //glVertex2f(-10, 10);
+    glEnd();
+}
+
+void ScreenComp::PostDraw() {
+
+}
+
+void ScreenComp::_LoadIdentity() {
+    glLoadIdentity();
 }
 

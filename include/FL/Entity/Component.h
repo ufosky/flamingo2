@@ -17,8 +17,8 @@ class Component {
         Component() {};
         virtual ~Component() {};
 
-        virtual void Init() = 0;
-        virtual void Cleanup() = 0;
+        virtual void Init() {};
+        virtual void Cleanup() {};
         virtual void Process() = 0;
         
         Entity *entity;

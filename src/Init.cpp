@@ -41,18 +41,24 @@ int Flamingo::_Init() {
     //// Entity Manager
     _entityManager = new EntityManager();
 
+    // Will probably turn this into something more useful later (scene graph, probably)
+    _renderables = std::vector<RenderableComp *>();
+    _entityManager->RegisterComponentVector(FL_COMPTYPE_RENDERABLE, (std::vector<Component *> *)&_renderables);
+
     //// Screens
 	_screens = std::vector<ScreenComp *>();
 	_entityManager->RegisterComponentVector(FL_COMPTYPE_SCREEN, (std::vector<Component *> *)&_screens);
 
-	SDL_Rect r = {0, 240, 640, 240};
+	SDL_Rect r = {0, 100, 640, 240};
 
 	Entity *e = _entityManager->CreateEntity();
+    _entityManager->AddComponent(e, new PositionComp());
 	_entityManager->AddComponent(e, new ScreenComp(&_displaySize));
 
 	e = _entityManager->CreateEntity();
+    _entityManager->AddComponent(e, new PositionComp());
 	_entityManager->AddComponent(e, new ScreenComp(&r));
-	//_entityManager->RemoveComponent(e, FL_COMPTYPE_SCREEN);
+    _entityManager->DestroyEntity(e);
 
     return this->Init();
 }
