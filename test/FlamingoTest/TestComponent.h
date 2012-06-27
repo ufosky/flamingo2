@@ -10,7 +10,7 @@ class TestComponent : public Component {
 
         void Init() {};
         void Process() {
-			std::cout << "Processed this TestComponent " << ++times_processed << " times!\n";
+			//std::cout << "Processed this TestComponent " << ++times_processed << " times!\n";
         };
         void Cleanup() {};
 

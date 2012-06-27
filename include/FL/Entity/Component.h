@@ -20,13 +20,13 @@ class Component {
         virtual void Init() = 0;
         virtual void Cleanup() = 0;
         virtual void Process() = 0;
+        
+        Entity *entity;
 
     protected:
         ComponentType _type;
         ComponentID _id;
         std::vector<ComponentType> _dependencies;
-
-        Entity *_e;
 		
 		// Use to set the _type and the _dependencies
 		virtual void _SetType() = 0;

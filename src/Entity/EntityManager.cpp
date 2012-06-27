@@ -105,7 +105,7 @@ void EntityManager::AddComponent(Entity *e, Component *comp) {
 
     _components[e].insert(std::pair<ComponentType, Component *>(comp->_type, comp));
     comp->_id = ++_nextID;
-    comp->_e = e;
+    comp->entity = e;
 	
 	if (_registeredComponentVectors.count(comp->_type)) {
 		_registeredComponentVectors[comp->_type]->push_back(comp);
