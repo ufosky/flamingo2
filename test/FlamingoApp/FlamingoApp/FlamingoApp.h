@@ -9,6 +9,14 @@
 #ifndef FlamingoApp_FlamingoApp_h
 #define FlamingoApp_FlamingoApp_h
 
+#include "FL/Flamingo.h"
+
+class FlamingoApp : public Flamingo {
+    
+public:
+    int Init();
+    
+};
 
 
 #endif

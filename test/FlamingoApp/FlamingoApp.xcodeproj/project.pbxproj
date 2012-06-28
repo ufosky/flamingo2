@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1736F70B159CC76D00F469B1 /* libIL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1736F70A159CC76D00F469B1 /* libIL.dylib */; };
+		1736F70D159CC77C00F469B1 /* libIL.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 1736F70A159CC76D00F469B1 /* libIL.dylib */; };
+		1736F710159CC7F000F469B1 /* crate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1736F70F159CC7F000F469B1 /* crate.jpg */; };
+		1736F712159CC82F00F469B1 /* FlamingoApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1736F711159CC82F00F469B1 /* FlamingoApp.cpp */; };
 		176527D0159A067600303624 /* libflamingo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 176527CF159A067600303624 /* libflamingo.a */; };
 		176527D1159A069100303624 /* libflamingo.a in Resources */ = {isa = PBXBuildFile; fileRef = 176527CF159A067600303624 /* libflamingo.a */; };
 		A93AE2311597C58F002F1FE4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93AE2301597C58F002F1FE4 /* Cocoa.framework */; };
@@ -20,6 +24,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1736F70A159CC76D00F469B1 /* libIL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libIL.dylib; path = usr/local/lib/libIL.dylib; sourceTree = SDKROOT; };
+		1736F70F159CC7F000F469B1 /* crate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = crate.jpg; sourceTree = "<group>"; };
+		1736F711159CC82F00F469B1 /* FlamingoApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FlamingoApp.cpp; sourceTree = "<group>"; };
+		1736F713159CC86500F469B1 /* FlamingoApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlamingoApp.h; sourceTree = "<group>"; };
 		176527CF159A067600303624 /* libflamingo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libflamingo.a; path = ../../lib/libflamingo.a; sourceTree = "<group>"; };
 		A93AE22C1597C58F002F1FE4 /* FlamingoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlamingoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93AE2301597C58F002F1FE4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -40,9 +48,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				176527D0159A067600303624 /* libflamingo.a in Frameworks */,
 				A93AE4E41597CDBB002F1FE4 /* libSDL.a in Frameworks */,
 				A93AE4E51597CDBB002F1FE4 /* libSDLmain.a in Frameworks */,
+				176527D0159A067600303624 /* libflamingo.a in Frameworks */,
+				1736F70B159CC76D00F469B1 /* libIL.dylib in Frameworks */,
 				A93AE2311597C58F002F1FE4 /* Cocoa.framework in Frameworks */,
 				A93AE2501597C61E002F1FE4 /* OpenGL.framework in Frameworks */,
 			);
@@ -51,6 +60,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1736F70E159CC7D000F469B1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1736F70F159CC7F000F469B1 /* crate.jpg */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		A93AE2211597C58F002F1FE4 = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +91,7 @@
 				A93AE4E21597CDBB002F1FE4 /* libSDL.a */,
 				A93AE4E31597CDBB002F1FE4 /* libSDLmain.a */,
 				176527CF159A067600303624 /* libflamingo.a */,
+				1736F70A159CC76D00F469B1 /* libIL.dylib */,
 				A93AE2301597C58F002F1FE4 /* Cocoa.framework */,
 				A93AE24F1597C61E002F1FE4 /* OpenGL.framework */,
 				A93AE2321597C58F002F1FE4 /* Other Frameworks */,
@@ -95,6 +113,9 @@
 			isa = PBXGroup;
 			children = (
 				A93AE24D1597C5C7002F1FE4 /* main.cpp */,
+				1736F713159CC86500F469B1 /* FlamingoApp.h */,
+				1736F711159CC82F00F469B1 /* FlamingoApp.cpp */,
+				1736F70E159CC7D000F469B1 /* Resources */,
 				A93AE2371597C58F002F1FE4 /* Supporting Files */,
 			);
 			path = FlamingoApp;
@@ -160,10 +181,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1736F70D159CC77C00F469B1 /* libIL.dylib in Resources */,
 				176527D1159A069100303624 /* libflamingo.a in Resources */,
 				A93AE4E61597CDD3002F1FE4 /* libSDL.a in Resources */,
 				A93AE4E71597CDD3002F1FE4 /* libSDLmain.a in Resources */,
 				A93AE23B1597C58F002F1FE4 /* InfoPlist.strings in Resources */,
+				1736F710159CC7F000F469B1 /* crate.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A93AE24E1597C5C7002F1FE4 /* main.cpp in Sources */,
+				1736F712159CC82F00F469B1 /* FlamingoApp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
