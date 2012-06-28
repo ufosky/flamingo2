@@ -15,8 +15,6 @@ class ScreenComp : public Component {
         ScreenComp(SDL_Rect *local);
 		~ScreenComp();
         
-		SDL_Rect local_rect;
-
 		void Init();
 		void Process();
 		void Cleanup();
@@ -24,6 +22,8 @@ class ScreenComp : public Component {
         void PreDraw();
 		void Draw(SpriteComp *comp);
         void PostDraw();
+		
+        SDL_Rect local_rect;
 
 	protected:
 		void _SetType() {

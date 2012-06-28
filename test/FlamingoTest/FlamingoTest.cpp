@@ -9,7 +9,7 @@ int FlamingoTest::Init() {
     Entity *e = _entityManager->CreateEntity();
     _entityManager->AddComponent(e, new TestComponent());
     _entityManager->AddComponent(e, new PositionComp(0, 0, 256, 256));
-    _entityManager->AddComponent(e, new SpriteComp("crate.jpg"));                                            
+    _entityManager->AddComponent(e, new SpriteComp(new Image("crate.jpg")));                                            
 
     return 0;
 }

@@ -50,7 +50,7 @@ void ScreenComp::Draw(SpriteComp *comp) {
     glTranslatef(pos->pos[0], pos->pos[1], 0);
     
     // Test
-    glBindTexture(GL_TEXTURE_2D, comp->img);
+    glBindTexture(GL_TEXTURE_2D, comp->img->img);
     glBegin(GL_QUADS);
         glTexCoord2f(0, 0);
         glVertex2f(pos->size(0,0), pos->size(1,0));

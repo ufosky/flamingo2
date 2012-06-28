@@ -7,28 +7,27 @@ class SpriteComp;
 #include "FL/Entity/Component.h"
 #include "FL/Components/FlComponents.h"
 
-#include <OpenGL/gl.h>
+#include "FL/Image.h"
 
 #include <string>
 
 class SpriteComp : public Component {
 	public:
 		SpriteComp();
-        SpriteComp(std::string file);
+        SpriteComp(Image *image);
 		~SpriteComp();
+		
+        void Process();
 
         void LoadImage(std::string file);
 
-		void Process();
-        
-        GLuint img;
+        Image *img;
+
 
 	protected:
 		void _SetType() {
             _type = FL_COMPTYPE_SPRITE;
         };
-
-        void _LoadImage(std::string file);
 
 };
 
