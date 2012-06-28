@@ -22,7 +22,7 @@ class ScreenComp : public Component {
 		void Cleanup();
 
         void PreDraw();
-		void Draw(RenderableComp *comp);
+		void Draw(SpriteComp *comp);
         void PostDraw();
 
 	protected:

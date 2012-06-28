@@ -39,26 +39,27 @@ void ScreenComp::PreDraw() {
     glEnd();
 }
 
-void ScreenComp::Draw(RenderableComp *comp) {
+void ScreenComp::Draw(SpriteComp *comp) {
     _LoadIdentity();
 
     PositionComp *pos = (PositionComp *)comp->entity->GetAs(FL_COMPTYPE_POSITION);
-    PositionComp *spos = (PositionComp *)entity->GetAs(FL_COMPTYPE_POSITION);
+    //PositionComp *spos = (PositionComp *)entity->GetAs(FL_COMPTYPE_POSITION);
 
-    glColor3f(0, 0, 0);
+    //glColor3f(0, 0, 0);
     glTranslatef(512, 384, 0);
     glTranslatef(pos->pos[0], pos->pos[1], 0);
     
     // Test
+    glBindTexture(GL_TEXTURE_2D, comp->img);
     glBegin(GL_QUADS);
+        glTexCoord2f(0, 0);
         glVertex2f(pos->size(0,0), pos->size(1,0));
+        glTexCoord2f(1, 0);
         glVertex2f(pos->size(0,1), pos->size(1,1));
+        glTexCoord2f(1, 1);
         glVertex2f(pos->size(0,2), pos->size(1,2));
+        glTexCoord2f(0, 1);
         glVertex2f(pos->size(0,3), pos->size(1,3));
-        //glVertex2f(-10, -10);
-        //glVertex2f(10, -10);
-        //glVertex2f(10, 10);
-        //glVertex2f(-10, 10);
     glEnd();
 }
 

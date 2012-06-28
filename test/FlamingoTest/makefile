@@ -1,6 +1,6 @@
 CC=clang++
 CFLAGS=-Wall -I../../include
-LDFLAGS=`sdl-config --cflags --libs` -framework OpenGL -L../../lib -lflamingo
+LDFLAGS=`sdl-config --cflags --libs` -framework OpenGL -L../../lib -lflamingo -lIL
 
 TARGET   = FlamingoTest
 SRCEXT   = cpp

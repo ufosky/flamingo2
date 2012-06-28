@@ -2,15 +2,14 @@
 #include "FlamingoTest.h"
 #include "TestComponent.h"
 #include "FL/Components/PositionComp.h"
-#include "FL/Components/RenderableComp.h"
+#include "FL/Components/SpriteComp.h"
 
 int FlamingoTest::Init() {
 
     Entity *e = _entityManager->CreateEntity();
     _entityManager->AddComponent(e, new TestComponent());
-    _entityManager->AddComponent(e, new PositionComp(0, 0, 100, 100));
-    _entityManager->AddComponent(e, new RenderableComp());
-
+    _entityManager->AddComponent(e, new PositionComp(0, 0, 256, 256));
+    _entityManager->AddComponent(e, new SpriteComp("crate.jpg"));                                            
 
     return 0;
 }

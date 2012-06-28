@@ -2,6 +2,8 @@
 #include "FL/Flamingo.h"
 #include "FL/Components/FLComponents.h"
 
+#include "IL/il.h"
+
 int Flamingo::_Init() {
 
     if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
@@ -38,12 +40,15 @@ int Flamingo::_Init() {
     glEnable(GL_TEXTURE_2D);
 
     // Flamingo
+
+    ilInit();
+
     //// Entity Manager
     _entityManager = new EntityManager();
 
     // Will probably turn this into something more useful later (scene graph, probably)
-    _renderables = std::vector<RenderableComp *>();
-    _entityManager->RegisterComponentVector(FL_COMPTYPE_RENDERABLE, (std::vector<Component *> *)&_renderables);
+    _renderables = std::vector<SpriteComp *>();
+    _entityManager->RegisterComponentVector(FL_COMPTYPE_SPRITE, (std::vector<Component *> *)&_renderables);
 
     //// Screens
 	_screens = std::vector<ScreenComp *>();
