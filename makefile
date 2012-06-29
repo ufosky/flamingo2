@@ -1,6 +1,6 @@
 CC=clang++
 CFLAGS=-c -Wall -Iinclude -fPIC
-LDFLAGS=`sdl-config --libs` -lIL -framework OpenGL -dynamiclib
+LDFLAGS=`sdl-config --libs` -lIL -lphysfs -framework OpenGL -dynamiclib
 
 TARGET    = libflamingo.a
 LIBNAME   = flamingo

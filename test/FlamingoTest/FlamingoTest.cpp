@@ -4,7 +4,7 @@
 #include "FL/Components/PositionComp.h"
 #include "FL/Components/SpriteComp.h"
 
-int FlamingoTest::Init() {
+int FlamingoTest::Init(int argc, char *argv[]) {
 
     Entity *e = _entityManager->CreateEntity();
     _entityManager->AddComponent(e, new TestComponent());
@@ -14,11 +14,11 @@ int FlamingoTest::Init() {
     return 0;
 }
 
-int main (int argc, char *arg[]) {
+int main (int argc, char *argv[]) {
 
     FlamingoTest flamingo = FlamingoTest();
 
-    return flamingo.Execute();
+    return flamingo.Execute(argc, argv);
 
 }
 

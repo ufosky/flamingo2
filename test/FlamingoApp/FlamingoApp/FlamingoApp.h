@@ -14,7 +14,7 @@
 class FlamingoApp : public Flamingo {
     
 public:
-    int Init();
+    int Init(int argc, char *argv[]);
     
 };
 

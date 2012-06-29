@@ -10,9 +10,9 @@ Flamingo::~Flamingo() {
 
 }
 
-int Flamingo::Execute() {
+int Flamingo::Execute(int argc, char *argv[]) {
 
-    if (_Init() == -1) {
+    if (_Init(argc, argv) == -1) {
         return -1;
     }
 

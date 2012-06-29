@@ -4,17 +4,12 @@
 
 #include <vector>
 
-#ifndef FLCOCOA
-#include <SDL/SDL.h>
-#else
-#include "SDL.h"
-#endif
+#include "SDL/SDL.h"
 #include <OpenGL/gl.h>
-
 
 #include "FL/Entity/EntityManager.h"
 #include "FL/Components/FLComponents.h"
-//#include "FL/Screen.h"
+
 
 class Flamingo {
 
@@ -33,9 +28,9 @@ class Flamingo {
         Flamingo();
         ~Flamingo();
 
-        int Execute();
+        int Execute(int argc, char *argv[]);
 
-        virtual int Init() { return 0; };
+        virtual int Init(int argc, char *argv[]) { return 0; };
         virtual void PreStep() {};
         virtual void PostStep() {};
         virtual void Cleanup() {};
@@ -44,7 +39,7 @@ class Flamingo {
         //void RemoveScreen(Screen &screen);
 
     private:
-        int _Init();
+        int _Init(int argc, char *argv[]);
         int _HandleEvents();
         void _Step();
         void _Render();

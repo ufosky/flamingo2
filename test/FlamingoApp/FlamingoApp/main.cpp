@@ -8,8 +8,8 @@
 
 #include "FlamingoApp.h"
 
-int main(int arc, char *argv[]) {
+int main(int argc, char *argv[]) {
     
     FlamingoApp flamingo = FlamingoApp();
-    return flamingo.Execute();
+    return flamingo.Execute(argc, argv);
 }

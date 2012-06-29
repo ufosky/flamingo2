@@ -7,7 +7,8 @@ class ScreenComp;
 #include "FL/Entity/Component.h"
 #include "FL/Components/FlComponents.h"
 
-#include <SDL/SDL.h>
+#include "SDL/SDL.h"
+
 
 class ScreenComp : public Component {
 	public:

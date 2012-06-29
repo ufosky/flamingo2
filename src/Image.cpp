@@ -4,6 +4,8 @@
 #include <OpenGL/glu.h>
 #include "IL/il.h"
 
+#include "physfs.h"
+
 #include <iostream>
 
 Image::Image() {
@@ -25,10 +27,18 @@ Image::Image(std::string filename) {
 }
 
 bool Image::LoadImage(std::string filename) {
+
+    const char *realDir = PHYSFS_getRealDir(filename.c_str());
+    if (!realDir) {
+        return false;
+    }
+
+    std::string file = realDir + filename;
+
     ILuint i;
     ilGenImages(1, &i);
     ilBindImage(i);
-    if (ilLoadImage(filename.c_str()) == IL_FALSE) {
+    if (ilLoadImage(file.c_str()) == IL_FALSE) {
         
         ILenum err = IL_NO_ERROR, temp;
 
@@ -39,7 +49,7 @@ bool Image::LoadImage(std::string filename) {
             err = temp;
         }
         
-        std::cout << "Cannot find image: " << filename << "\n";
+        std::cout << "Cannot find image: " << file << "\n";
         return false;
     }
     if (ilConvertImage(IL_RGBA, IL_UNSIGNED_BYTE) == IL_FALSE) {

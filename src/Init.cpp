@@ -4,7 +4,11 @@
 
 #include "IL/il.h"
 
-int Flamingo::_Init() {
+#include "physfs.h"
+
+#include <iostream>
+
+int Flamingo::_Init(int argc, char *argv[]) {
 
     if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
         return -1;
@@ -41,6 +45,8 @@ int Flamingo::_Init() {
 
     // Flamingo
 
+    PHYSFS_init(argv[0]);
+    PHYSFS_mount(PHYSFS_getBaseDir(), "/", 0);
     ilInit();
 
     //// Entity Manager
@@ -65,7 +71,7 @@ int Flamingo::_Init() {
 	_entityManager->AddComponent(e, new ScreenComp(&r));
     _entityManager->DestroyEntity(e);
 
-    return this->Init();
+    return this->Init(argc, argv);
 }
 
 void Flamingo::_Cleanup() {
