@@ -1,6 +1,7 @@
 /build/
 /bin/
 /lib/
+/test/FlamingoTest/lib
 .DS_STORE
 .DS_STORE?
 *.swp

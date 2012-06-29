@@ -1,6 +1,7 @@
 CC=clang++
-CFLAGS=-c -Wall -Iinclude -fPIC
-LDFLAGS=`sdl-config --libs` -lIL -lphysfs -framework OpenGL -dynamiclib
+CFLAGS=-c -Wall -Iinclude -I/Library/Frameworks/SDL.framework/Headers
+#LDFLAGS=`sdl-config --libs` -lIL -lphysfs -framework OpenGL -dynamiclib
+LDFLAGS=-lIL -lphysfs -framework SDL -framework OpenGL -dynamiclib
 
 TARGET    = libflamingo.a
 LIBNAME   = flamingo
@@ -22,6 +23,7 @@ $(LIBDIR)/$(TARGET): buildrepo $(OBJS)
 	@mkdir -p `dirname $@`
 	@$(RM) -f $(LIBDIR)/$(TARGET)
 	ar rs $@ $(OBJS)
+#	$(CC) $(LDFLAGS) $(OBJS) -o $@
 
 $(OBJDIR)/%.o: %.$(SRCEXT)
 #	@$(call make-depend,$<,$@,$(subst .o,.d,$@))

@@ -9,7 +9,7 @@ class PositionComp;
 
 #include "Eigen/Dense"
 #include "Eigen/Geometry"
-#include "SDL/SDL.h"
+#include "SDL.h"
 
 class PositionComp : public Component {
 	public:

@@ -4,7 +4,7 @@
 
 #include <vector>
 
-#include "SDL/SDL.h"
+#include "SDL.h"
 #include <OpenGL/gl.h>
 
 #include "FL/Entity/EntityManager.h"
