@@ -23,9 +23,7 @@ $(LIBDIR)/$(TARGET): buildrepo $(OBJS)
 	@mkdir -p `dirname $@`
 	@$(RM) -f $(LIBDIR)/$(TARGET)
 #	ar rs $@ $(OBJS)
-	$(CC) $(LDFLAGS) $(OBJS) -o $(TARGET)
-	@mv $(TARGET) $(LIBDIR)
-
+	$(CC) $(LDFLAGS) $(OBJS) -o $(LIBDIR)/$(TARGET)
 
 $(OBJDIR)/%.o: %.$(SRCEXT)
 #	@$(call make-depend,$<,$@,$(subst .o,.d,$@))

@@ -3,6 +3,7 @@
 #define FLAMINGO_H_ 
 
 #include <vector>
+#include <string>
 
 #include "SDL.h"
 #include <OpenGL/gl.h>
@@ -37,6 +38,8 @@ class Flamingo {
 
         //void PushScreen(Screen &screen);
         //void RemoveScreen(Screen &screen);
+        
+        void MountDirectory(std::string path, std::string mtpt, int pre);
 
     private:
         int _Init(int argc, char *argv[]);

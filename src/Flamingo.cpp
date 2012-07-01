@@ -1,6 +1,8 @@
 
 #include "FL/Flamingo.h"
 
+#include "physfs.h"
+
 Flamingo::Flamingo() {
     _running = true;
     _display = NULL;
@@ -29,6 +31,12 @@ int Flamingo::Execute(int argc, char *argv[]) {
     return 0;
 }
 
+void Flamingo::MountDirectory(std::string path, std::string mtpt, int pre) {
+
+    PHYSFS_mount(path.c_str(), mtpt.c_str(), pre);
+
+}
+
 void Flamingo::_Step() {
 
     this->PreStep();
@@ -38,12 +46,4 @@ void Flamingo::_Step() {
     this->PostStep();
 
 }
-
-//int main (int argc, char *arg[]) {
-//
-//    Flamingo flamingo;
-//
-//    return flamingo.Execute();
-//
-//}
 

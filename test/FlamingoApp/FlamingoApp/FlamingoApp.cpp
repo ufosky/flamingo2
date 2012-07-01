@@ -14,7 +14,8 @@
 
 int FlamingoApp::Init(int argc, char *argv[]) {
     
-    //PHYSFS_mount((std::string(PHYSFS_getBaseDir()) + "Contents/Resources/").c_str(), "/", 1);
+    PHYSFS_init(argv[0]);
+    MountDirectory(std::string(PHYSFS_getBaseDir()) + "Contents/Resources/", "/", 1);
     
     Entity *e = _entityManager->CreateEntity();
     _entityManager->AddComponent(e, new PositionComp(0, 0, 256, 256));
