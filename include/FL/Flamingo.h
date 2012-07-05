@@ -8,8 +8,13 @@
 #include "SDL.h"
 #include <OpenGL/gl.h>
 
+#include "FL/Event/EventManager.h"
+#include "FL/Event/FLEvents.h"
+
 #include "FL/Entity/EntityManager.h"
 #include "FL/Components/FLComponents.h"
+
+#include "FL/Systems/ScreenSystem.h"
 
 
 class Flamingo {
@@ -18,12 +23,12 @@ class Flamingo {
         bool _running;
 
     protected:
+        EventManager *_eventManager;
         EntityManager *_entityManager;
 
         SDL_Surface *_display;
         SDL_Rect _displaySize;
-        std::vector<ScreenComp *> _screens;
-        std::vector<SpriteComp *> _renderables;
+        ScreenSystem *screenSystem;
 
     public:
         Flamingo();
@@ -35,9 +40,6 @@ class Flamingo {
         virtual void PreStep() {};
         virtual void PostStep() {};
         virtual void Cleanup() {};
-
-        //void PushScreen(Screen &screen);
-        //void RemoveScreen(Screen &screen);
         
         void MountDirectory(std::string path, std::string mtpt, int pre);
 

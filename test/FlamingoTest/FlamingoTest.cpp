@@ -4,6 +4,8 @@
 #include "FL/Components/PositionComp.h"
 #include "FL/Components/SpriteComp.h"
 
+#include <iostream>
+
 int FlamingoTest::Init(int argc, char *argv[]) {
 
     Entity *e = _entityManager->CreateEntity();

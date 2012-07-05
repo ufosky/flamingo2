@@ -1,7 +1,6 @@
 CC=clang++
 CFLAGS=-c -Wall -Iinclude -I/Library/Frameworks/SDL.framework/Headers
-#LDFLAGS=`sdl-config --libs` -lIL -lphysfs -framework OpenGL -dynamiclib
-LDFLAGS=-lIL -lphysfs -framework SDL -framework OpenGL -dynamiclib -install_name @executable_path/../Frameworks/libflamingo.dylib
+LDFLAGS=-lIL -lphysfs -framework SDL -framework OpenGL -dynamiclib
 
 TARGET    = libflamingo.dylib
 LIBNAME   = flamingo
@@ -21,8 +20,10 @@ all: $(LIBDIR)/$(TARGET) tests
 
 $(LIBDIR)/$(TARGET): buildrepo $(OBJS)
 	@mkdir -p `dirname $@`
+	@mkdir -p `dirname $(LIBDIR)/xcode/$(TARGET)`
 	@$(RM) -f $(LIBDIR)/$(TARGET)
 #	ar rs $@ $(OBJS)
+	$(CC) $(LDFLAGS) $(OBJS) -install_name @executable_path/../Frameworks/libflamingo.dylib -o $(LIBDIR)/xcode/$(TARGET)
 	$(CC) $(LDFLAGS) $(OBJS) -o $(LIBDIR)/$(TARGET)
 
 $(OBJDIR)/%.o: %.$(SRCEXT)

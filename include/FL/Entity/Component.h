@@ -7,6 +7,8 @@ typedef unsigned int ComponentType;
 typedef unsigned int ComponentID;
 
 #include "FL/Entity/Entity.h"
+#include "FL/Event/Event.h"
+
 #include <vector>
 
 class Component {
@@ -14,23 +16,20 @@ class Component {
     friend class EntityManager;
 
     public:
-        Component() {};
+        Component(ComponentType type) : _type(type) {};
         virtual ~Component() {};
 
-        virtual void Init() {};
-        virtual void Cleanup() {};
-        virtual void Process() = 0;
-        
         Entity *entity;
 
     protected:
         ComponentType _type;
         ComponentID _id;
-        std::vector<ComponentType> _dependencies;
-		
-		// Use to set the _type and the _dependencies
-		virtual void _SetType() = 0;
+};
 
+struct ComponentEvent : public EventData {
+    ComponentEvent(EventType _type, Entity *_e, ComponentType _ctype) : EventData(_type), e(_e), ctype(_ctype) {};
+    Entity *e;
+    ComponentType ctype;
 };
 
 #endif

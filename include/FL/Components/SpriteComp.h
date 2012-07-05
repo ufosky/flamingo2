@@ -17,18 +17,9 @@ class SpriteComp : public Component {
         SpriteComp(Image *image);
 		~SpriteComp();
 		
-        void Process();
-
         void LoadImage(std::string file);
 
         Image *img;
-
-
-	protected:
-		void _SetType() {
-            _type = FL_COMPTYPE_SPRITE;
-        };
-
 };
 
 #endif

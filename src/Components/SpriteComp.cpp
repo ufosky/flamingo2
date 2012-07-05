@@ -6,13 +6,11 @@
 
 #include <iostream>
 
-SpriteComp::SpriteComp() {
-    _SetType();
+SpriteComp::SpriteComp() : Component(FL_COMPTYPE_SPRITE) {
+
 }
 
-SpriteComp::SpriteComp(Image *image) {
-
-    _SetType();
+SpriteComp::SpriteComp(Image *image) : Component(FL_COMPTYPE_SPRITE) {
     img = image;
 }
 
@@ -21,10 +19,6 @@ SpriteComp::~SpriteComp() {
 }
 
 void SpriteComp::LoadImage(std::string file) {
-
-}
-
-void SpriteComp::Process() {
 
 }
 

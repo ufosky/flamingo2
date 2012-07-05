@@ -49,17 +49,11 @@ int Flamingo::_Init(int argc, char *argv[]) {
     PHYSFS_mount(PHYSFS_getBaseDir(), "/", 0);
     ilInit();
 
-    //// Entity Manager
-    _entityManager = new EntityManager();
-
-    // Will probably turn this into something more useful later (scene graph, probably)
-    _renderables = std::vector<SpriteComp *>();
-    _entityManager->RegisterComponentVector(FL_COMPTYPE_SPRITE, (std::vector<Component *> *)&_renderables);
+    _eventManager = new EventManager();
+    _entityManager = new EntityManager(_eventManager);
 
     //// Screens
-	_screens = std::vector<ScreenComp *>();
-	_entityManager->RegisterComponentVector(FL_COMPTYPE_SCREEN, (std::vector<Component *> *)&_screens);
-
+    screenSystem = new ScreenSystem(_eventManager, _entityManager);
 	SDL_Rect r = {0, 100, 640, 240};
 
 	Entity *e = _entityManager->CreateEntity();
@@ -69,7 +63,7 @@ int Flamingo::_Init(int argc, char *argv[]) {
 	e = _entityManager->CreateEntity();
     _entityManager->AddComponent(e, new PositionComp());
 	_entityManager->AddComponent(e, new ScreenComp(&r));
-    _entityManager->DestroyEntity(e);
+    //_entityManager->DestroyEntity(e);
 
     return this->Init(argc, argv);
 }
@@ -79,8 +73,8 @@ void Flamingo::_Cleanup() {
     this->Cleanup();
 
     delete _entityManager;
+    delete _eventManager;
 
     SDL_Quit();
-
 }
 

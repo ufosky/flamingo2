@@ -7,7 +7,10 @@ typedef unsigned int EntityID;
 
 #include "FL/Entity/Component.h"
 #include "FL/Entity/EntityManager.h"
+#include "FL/Event/FLEvents.h"
+
 #include <map>
+#include <set>
 
 
 class Entity {
@@ -15,16 +18,22 @@ class Entity {
     friend class EntityManager;
 
     public:
-        Entity(EntityID id);
+        Entity(EntityID id) : _id(id) {};
         ~Entity();
 
         bool HasComponentType(ComponentType type);
-        Component *GetAs(ComponentType type);
+        bool HasComponentTypes(std::set<ComponentType> types);
 
     protected:
         EntityID _id;
-        std::map<ComponentType, Component *> _components;
+        unsigned int _index;
+        std::set<ComponentType> _types;
         EntityManager *_entityManager;
+};
+
+struct EntityEvent : public EventData {
+    EntityEvent(EventType _type, Entity *_e) : EventData(_type), e(_e) {};
+    Entity *e;
 };
 
 #endif

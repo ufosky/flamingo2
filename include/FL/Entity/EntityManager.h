@@ -6,6 +6,8 @@ class EntityManager;
 
 #include "FL/Entity/Entity.h"
 #include "FL/Entity/Component.h"
+#include "FL/Event/EventManager.h"
+
 #include <map>
 #include <set>
 #include <vector>
@@ -13,7 +15,7 @@ class EntityManager;
 class EntityManager {
 
     public:
-        EntityManager();
+        EntityManager(EventManager *eventManager);
         ~EntityManager();
 
         Entity *CreateEntity();
@@ -22,27 +24,24 @@ class EntityManager {
         void AddComponent(Entity *e,Component *comp);
         void RemoveComponent(Entity *e, ComponentType type);
         void RemoveComponent(Entity *e, Component *comp);
+        void RemoveAllComponents(Entity *e);
+        void RemoveAllComponents(Entity *e, ComponentType type);
 
+        const std::vector<Component *> &GetComponents(Entity *e, ComponentType type);
         Component *GetComponent(Entity *e, ComponentType type);
 
-		void RegisterComponentVector(ComponentType type, std::vector<Component *> *vect);
-		void UnregisterComponentVector(ComponentType type);
-
-        void Process();
-
     protected:
-		void _DestroyEntities();
-		void _DestroyComponents(Entity *e);
-		void _DestroyComponent(Entity *e, ComponentType type);
-		void _RemoveComponentFromRegisteredVector(ComponentType type, Component *comp);
 
-        void _Process(Entity *e, Component *comp);
-		int _RegisteredComponentVectorSearch(std::vector<Component *> *v, Component *comp);
+        void _RemoveAllComponents(Entity *e, ComponentType type);
+
+        static std::vector<Component *> EmptyList;
 
         EntityID _nextID;
-        std::map<Entity *, std::map<ComponentType, Component *> > _components;
-        std::set<ComponentType> _processed;
-		std::map<ComponentType, std::vector<Component *> *> _registeredComponentVectors;
+        std::vector<unsigned int> _removedIndices;
+        std::vector<Entity *> _entities;
+        std::vector<std::vector<std::vector<Component *> > > _components;
+
+        EventManager *_eventManager;
 };
 
 #endif

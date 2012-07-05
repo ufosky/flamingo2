@@ -12,6 +12,8 @@
 		A93AE2311597C58F002F1FE4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93AE2301597C58F002F1FE4 /* Cocoa.framework */; };
 		A93AE23B1597C58F002F1FE4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A93AE2391597C58F002F1FE4 /* InfoPlist.strings */; };
 		A93AE24E1597C5C7002F1FE4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A93AE24D1597C5C7002F1FE4 /* main.cpp */; };
+		A95C9B5A15A4BAE800F4FA30 /* libflamingo.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A95C9B5915A4BAE800F4FA30 /* libflamingo.dylib */; };
+		A95C9B5B15A4BB0500F4FA30 /* libflamingo.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = A95C9B5915A4BAE800F4FA30 /* libflamingo.dylib */; };
 		A95EAFD2159E4754007A00F2 /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A95EAFD1159E4754007A00F2 /* SDL.framework */; };
 		A95EAFD4159E475A007A00F2 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A95EAFD3159E475A007A00F2 /* OpenGL.framework */; };
 		A95EAFD8159E47AB007A00F2 /* libphysfs.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A95EAFD7159E47AB007A00F2 /* libphysfs.2.1.0.dylib */; };
@@ -20,8 +22,6 @@
 		A95EB135159E5C86007A00F2 /* libphysfs.2.1.0.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = A95EAFD7159E47AB007A00F2 /* libphysfs.2.1.0.dylib */; };
 		A9BB3D4F15A0E30C00D257CF /* libIL.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BB3D4E15A0E30C00D257CF /* libIL.1.dylib */; };
 		A9BB3D5015A0E33B00D257CF /* libIL.1.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = A9BB3D4E15A0E30C00D257CF /* libIL.1.dylib */; };
-		A9BB3D5715A0E6A200D257CF /* libflamingo.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BB3D5615A0E6A200D257CF /* libflamingo.dylib */; };
-		A9BB3D5815A0E6C100D257CF /* libflamingo.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = A9BB3D5615A0E6A200D257CF /* libflamingo.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,7 +31,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A9BB3D5815A0E6C100D257CF /* libflamingo.dylib in CopyFiles */,
+				A95C9B5B15A4BB0500F4FA30 /* libflamingo.dylib in CopyFiles */,
 				A9BB3D5015A0E33B00D257CF /* libIL.1.dylib in CopyFiles */,
 				A95EB134159E5C59007A00F2 /* SDL.framework in CopyFiles */,
 				A95EB135159E5C86007A00F2 /* libphysfs.2.1.0.dylib in CopyFiles */,
@@ -53,6 +53,7 @@
 		A93AE23A1597C58F002F1FE4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A93AE23E1597C58F002F1FE4 /* FlamingoApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlamingoApp-Prefix.pch"; sourceTree = "<group>"; };
 		A93AE24D1597C5C7002F1FE4 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		A95C9B5915A4BAE800F4FA30 /* libflamingo.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libflamingo.dylib; path = ../../lib/xcode/libflamingo.dylib; sourceTree = "<group>"; };
 		A95EAFD1159E4754007A00F2 /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL.framework; path = /Library/Frameworks/SDL.framework; sourceTree = "<absolute>"; };
 		A95EAFD3159E475A007A00F2 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		A95EAFD7159E47AB007A00F2 /* libphysfs.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libphysfs.2.1.0.dylib; path = /usr/local/lib/libphysfs.2.1.0.dylib; sourceTree = "<absolute>"; };
@@ -313,7 +314,6 @@
 		A95EB0F7159E4E0B007A00F2 /* ilu_region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ilu_region.h; sourceTree = "<group>"; };
 		A95EB0F8159E4E0B007A00F2 /* physfs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = physfs.h; sourceTree = "<group>"; };
 		A9BB3D4E15A0E30C00D257CF /* libIL.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libIL.1.dylib; path = /usr/local/Cellar/devil/1.7.8/lib/libIL.1.dylib; sourceTree = "<absolute>"; };
-		A9BB3D5615A0E6A200D257CF /* libflamingo.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libflamingo.dylib; path = ../../lib/libflamingo.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -321,9 +321,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A95C9B5A15A4BAE800F4FA30 /* libflamingo.dylib in Frameworks */,
 				A9BB3D4F15A0E30C00D257CF /* libIL.1.dylib in Frameworks */,
 				A95EAFD8159E47AB007A00F2 /* libphysfs.2.1.0.dylib in Frameworks */,
-				A9BB3D5715A0E6A200D257CF /* libflamingo.dylib in Frameworks */,
 				A95EAFD4159E475A007A00F2 /* OpenGL.framework in Frameworks */,
 				A95EAFD2159E4754007A00F2 /* SDL.framework in Frameworks */,
 				A93AE2311597C58F002F1FE4 /* Cocoa.framework in Frameworks */,
@@ -363,7 +363,7 @@
 			children = (
 				A95EAFD7159E47AB007A00F2 /* libphysfs.2.1.0.dylib */,
 				A9BB3D4E15A0E30C00D257CF /* libIL.1.dylib */,
-				A9BB3D5615A0E6A200D257CF /* libflamingo.dylib */,
+				A95C9B5915A4BAE800F4FA30 /* libflamingo.dylib */,
 				A95EAFD3159E475A007A00F2 /* OpenGL.framework */,
 				A95EAFD1159E4754007A00F2 /* SDL.framework */,
 				A93AE2301597C58F002F1FE4 /* Cocoa.framework */,
@@ -980,7 +980,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "function relocateLibraryInCurrentApp() {\n    install_name_tool -change $1$2 @executable_path/../Frameworks/$2 $CONFIGURATION_BUILD_DIR/$EXECUTABLE_PATH\n}\n\ninstall_name_tool -change libphysfs.1.dylib @executable_path/../Frameworks/libphysfs.2.1.0.dylib $CONFIGURATION_BUILD_DIR/$EXECUTABLE_PATH\n\ninstall_name_tool -change libflamingo.dylib @executable_path/../Frameworks/libflamingo.dylib $CONFIGURATION_BUILD_DIR/$EXECUTABLE_PATH\n\nrelocateLibraryInCurrentApp /usr/local/Cellar/devil/1.7.8/lib/ libIL.1.dylib\nrelocateLibraryInCurrentApp /Library/Frameworks/ SDL.framework/Versions/A/SDL";
+			shellScript = "function relocateLibraryInCurrentApp() {\n    install_name_tool -change $1$2 @executable_path/../Frameworks/$2 $CONFIGURATION_BUILD_DIR/$EXECUTABLE_PATH\n}\n\ninstall_name_tool -change libphysfs.1.dylib @executable_path/../Frameworks/libphysfs.2.1.0.dylib $CONFIGURATION_BUILD_DIR/$EXECUTABLE_PATH\n\nrelocateLibraryInCurrentApp /usr/local/Cellar/devil/1.7.8/lib/ libIL.1.dylib\nrelocateLibraryInCurrentApp /Library/Frameworks/ SDL.framework/Versions/A/SDL";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1076,9 +1076,9 @@
 				INFOPLIST_FILE = "FlamingoApp/FlamingoApp-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../lib\"",
 					/usr/local/lib,
 					/usr/local/Cellar/devil/1.7.8/lib,
+					"\"$(SRCROOT)/../../lib/xcode\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1098,9 +1098,9 @@
 				INFOPLIST_FILE = "FlamingoApp/FlamingoApp-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../lib\"",
 					/usr/local/lib,
 					/usr/local/Cellar/devil/1.7.8/lib,
+					"\"$(SRCROOT)/../../lib/xcode\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";

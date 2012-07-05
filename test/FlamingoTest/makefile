@@ -10,8 +10,10 @@ SRCS     := $(shell find . -name '*.$(SRCEXT)')
 all: $(TARGET)
 
 $(TARGET): clean
+	@ln -s ../../lib lib
 	$(CC) $(SRCS) SDLMain.m $(CFLAGS) $(LDFLAGS) -o $@
 
 clean:
+	@$(RM) -rf lib
 	@$(RM) -f $(TARGET)
 

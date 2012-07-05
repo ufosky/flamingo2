@@ -3,19 +3,22 @@
 
 #include <iostream>
 
-Entity::Entity(EntityID id) {
-    _id = id;
-}
-
 Entity::~Entity() {
-
+    _types.clear();
 };
 
 bool Entity::HasComponentType(ComponentType type) {
-    return _components.find(type) != _components.end();
+    return _types.find(type) != _types.end();
 }
 
-Component *Entity::GetAs(ComponentType type) {
-    return _entityManager->GetComponent(this, type);
+bool Entity::HasComponentTypes(std::set<ComponentType> types) {
+
+    for (std::set<ComponentType>::const_iterator it = types.begin(); it != types.end(); it++) {
+
+        if (!HasComponentType(*it)) {
+            return false;
+        }
+    }
+    return true;
 }
 

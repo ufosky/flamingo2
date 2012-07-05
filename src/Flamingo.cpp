@@ -41,7 +41,7 @@ void Flamingo::_Step() {
 
     this->PreStep();
 
-    _entityManager->Process();
+    //_entityManager->Process();
 
     this->PostStep();
 

@@ -21,15 +21,8 @@ class PositionComp : public Component {
         PositionComp(SDL_Rect *r);
 		~PositionComp();
 
-		void Init();
-		void Process();
-		void Cleanup();
-
         Eigen::Vector3f pos;
         Eigen::Matrix<float,3,4> size;
-
-	protected:
-		void _SetType() { _type = FL_COMPTYPE_POSITION; };
 };
 
 #endif
