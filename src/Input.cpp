@@ -3,7 +3,6 @@
 
 // Return -1 if execution should end
 // Return 0 otherwise
-//
 
 SDL_Event sdl_event;
 

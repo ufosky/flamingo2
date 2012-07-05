@@ -14,7 +14,7 @@
 #include "FL/Entity/EntityManager.h"
 #include "FL/Components/FLComponents.h"
 
-#include "FL/Systems/ScreenSystem.h"
+#include "FL/Systems/FLSystems.h"
 
 
 class Flamingo {
@@ -28,6 +28,8 @@ class Flamingo {
 
         SDL_Surface *_display;
         SDL_Rect _displaySize;
+        
+        InputSystem *inputSystem;
         ScreenSystem *screenSystem;
 
     public:
@@ -40,8 +42,6 @@ class Flamingo {
         virtual void PreStep() {};
         virtual void PostStep() {};
         virtual void Cleanup() {};
-        
-        void MountDirectory(std::string path, std::string mtpt, int pre);
 
     private:
         int _Init(int argc, char *argv[]);

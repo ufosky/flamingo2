@@ -44,13 +44,13 @@ int Flamingo::_Init(int argc, char *argv[]) {
     glEnable(GL_TEXTURE_2D);
 
     // Flamingo
-
     PHYSFS_init(argv[0]);
     PHYSFS_mount(PHYSFS_getBaseDir(), "/", 0);
     ilInit();
 
     _eventManager = new EventManager();
     _entityManager = new EntityManager(_eventManager);
+    inputSystem = new InputSystem(_eventManager, _entityManager);
 
     //// Screens
     screenSystem = new ScreenSystem(_eventManager, _entityManager);

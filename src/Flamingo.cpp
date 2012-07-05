@@ -19,7 +19,8 @@ int Flamingo::Execute(int argc, char *argv[]) {
     }
 
     while (_running) {
-        if (_HandleEvents() == -1) {
+        inputSystem->Process();
+        if (inputSystem->quit) {
             _running = false;
             break;
         }
@@ -31,19 +32,10 @@ int Flamingo::Execute(int argc, char *argv[]) {
     return 0;
 }
 
-void Flamingo::MountDirectory(std::string path, std::string mtpt, int pre) {
-
-    PHYSFS_mount(path.c_str(), mtpt.c_str(), pre);
-
-}
-
 void Flamingo::_Step() {
 
     this->PreStep();
-
-    //_entityManager->Process();
-
+    
     this->PostStep();
-
 }
 
