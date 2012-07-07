@@ -10,18 +10,24 @@ SRCDIR    = src
 TESTDIR   = test
 OBJDIR    = build
 LIBDIR    = lib
+SWIGDIR   = swig
 
 SRCS     := $(shell find $(SRCDIR) -name '*.$(SRCEXT)')
 SRCDIRS  := $(shell find $(SRCDIR) -name '*.$(SRCEXT)' -exec dirname {} \; | uniq)
 TESTDIRS := $(shell find $(TESTDIR) -name 'makefile' -exec dirname {} \; | uniq)
 OBJS     := $(patsubst %.$(SRCEXT),$(OBJDIR)/%.o,$(SRCS))
 
-all: $(LIBDIR)/$(TARGET) tests
+SWIGSRC  := $(shell find $(SWIGDIR) -name '*.i')
+SWIGWRAP := $(patsubst %.i,%_wrap.cxx,$(SWIGSRC))
 
-$(LIBDIR)/$(TARGET): buildrepo $(OBJS)
+all: clean $(LIBDIR)/$(TARGET) pyswig tests
+
+buildflamingo:
+	@echo "Building Flamingo..."
+
+$(LIBDIR)/$(TARGET): buildrepo buildflamingo $(OBJS)
+	@echo "\nLinking Flamingo...\n"
 	@mkdir -p `dirname $@`
-	@mkdir -p `dirname $(LIBDIR)/xcode/$(TARGET)`
-	@$(RM) -f $(LIBDIR)/$(TARGET)
 #	ar rs $@ $(OBJS)
 	$(CC) $(LDFLAGS) $(OBJS) -install_name @executable_path/../Frameworks/libflamingo.dylib -o $(LIBDIR)/xcode/$(TARGET)
 	$(CC) $(LDFLAGS) $(OBJS) -o $(LIBDIR)/$(TARGET)
@@ -30,13 +36,23 @@ $(OBJDIR)/%.o: %.$(SRCEXT)
 #	@$(call make-depend,$<,$@,$(subst .o,.d,$@))
 	$(CC) $(CFLAGS) $< -o $@
 
+buildswig:
+	@echo "\nBuilding Swig Modules...\n"
+
+pyswig: buildswig $(SWIGWRAP)
+	python setup.py build_ext --inplace
+
+$(SWIGDIR)/%_wrap.cxx: $(SWIGDIR)/%.i
+	swig -python -c++ $<
+	@mv $(SWIGDIR)/*.py $(LIBDIR)/python/
+
 tests: $(LIBDIR)/$(TARGET)
-	@echo ""
-	@echo "Building Tests..."
+	@echo "\nBuilding Tests...\n"
 	@for dir in $(TESTDIRS); do $(MAKE) -C $$dir; done;
 
 clean:
 	@$(RM) -r $(OBJDIR)/*
+	@$(RM) -r $(SWIGDIR)/*.cxx
 	@$(RM) -r $(LIBDIR)/*
 	@for dir in $(TESTDIRS); do $(MAKE) clean -C $$dir; done;
 
@@ -48,6 +64,10 @@ define make-repo
 	do \
 		mkdir -p $(OBJDIR)/$$dir; \
 	done;
+	mkdir -p $(OBJDIR)/$(SWIGDIR)
+	mkdir -p $(LIBDIR)/
+	mkdir -p $(LIBDIR)/python
+	mkdir -p $(LIBDIR)/xcode
 endef
 
 #define make-depend

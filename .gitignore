@@ -14,3 +14,6 @@
 project.xcworkspace/
 xcuserdata/
 
+/swig/*
+!/swig/*.i
+
