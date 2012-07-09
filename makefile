@@ -11,6 +11,7 @@ TESTDIR   = test
 OBJDIR    = build
 LIBDIR    = lib
 SWIGDIR   = swig
+PYDIR	  = python/flamingo
 
 SRCS     := $(shell find $(SRCDIR) -name '*.$(SRCEXT)')
 SRCDIRS  := $(shell find $(SRCDIR) -name '*.$(SRCEXT)' -exec dirname {} \; | uniq)
@@ -40,11 +41,11 @@ buildswig:
 	@echo "\nBuilding Swig Modules...\n"
 
 pyswig: buildswig $(SWIGWRAP)
-	python setup.py build_ext --inplace
+	ARCHFLAGS="-arch i386 -arch x86_64" python setup.py build_ext --inplace
 
 $(SWIGDIR)/%_wrap.cxx: $(SWIGDIR)/%.i
 	swig -python -c++ $<
-	@mv $(SWIGDIR)/*.py $(LIBDIR)/python/
+	@mv $(SWIGDIR)/*.py $(PYDIR)/
 
 tests: $(LIBDIR)/$(TARGET)
 	@echo "\nBuilding Tests...\n"
@@ -55,6 +56,7 @@ clean:
 	@$(RM) -r $(SWIGDIR)/*.cxx
 	@$(RM) -r $(LIBDIR)/*
 	@for dir in $(TESTDIRS); do $(MAKE) clean -C $$dir; done;
+	@$(MAKE) clean -C $(PYDIR)
 
 buildrepo:
 	@$(call make-repo)
@@ -64,9 +66,7 @@ define make-repo
 	do \
 		mkdir -p $(OBJDIR)/$$dir; \
 	done;
-	mkdir -p $(OBJDIR)/$(SWIGDIR)
 	mkdir -p $(LIBDIR)/
-	mkdir -p $(LIBDIR)/python
 	mkdir -p $(LIBDIR)/xcode
 endef
 
