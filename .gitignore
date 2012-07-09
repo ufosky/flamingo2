@@ -5,6 +5,7 @@
 .DS_STORE
 .DS_STORE?
 *.swp
+*.pyc
 
 *.pbxuser
 *.mode1v3
