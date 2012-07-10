@@ -1,4 +1,3 @@
 
 import component
-import script
 

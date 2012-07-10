@@ -2,6 +2,9 @@
 #include "FL/Systems/ScreenSystem.h"
 #include "FL/Components/FLComponents.h"
 
+#include <Python.h>
+#include <iostream>
+
 #include <OpenGL/gl.h>
 #include "SDL.h"
 
@@ -88,6 +91,11 @@ void ScreenSystem::ProcessEntity(Entity *e) {
             glTexCoord2f(0, 1);
             glVertex2f(pos->size(0,3), pos->size(1,3));
         glEnd();
+    }
+
+    // Temp Script Test
+    if (s->script.size()) {
+        PyRun_SimpleString(s->script.c_str());
     }
 }
 

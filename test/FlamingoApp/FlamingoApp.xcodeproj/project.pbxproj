@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		1736F710159CC7F000F469B1 /* crate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1736F70F159CC7F000F469B1 /* crate.jpg */; };
 		1736F712159CC82F00F469B1 /* FlamingoApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1736F711159CC82F00F469B1 /* FlamingoApp.cpp */; };
-		1737E00B15A5ED0C00F0C6C4 /* libphysfs.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1737E00A15A5ED0C00F0C6C4 /* libphysfs.dylib */; };
-		1737E00C15A5ED3000F0C6C4 /* libphysfs.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1737E00A15A5ED0C00F0C6C4 /* libphysfs.dylib */; };
 		A93AE2311597C58F002F1FE4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93AE2301597C58F002F1FE4 /* Cocoa.framework */; };
 		A93AE23B1597C58F002F1FE4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A93AE2391597C58F002F1FE4 /* InfoPlist.strings */; };
 		A93AE24E1597C5C7002F1FE4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A93AE24D1597C5C7002F1FE4 /* main.cpp */; };
@@ -20,6 +18,7 @@
 		A95EAFD4159E475A007A00F2 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A95EAFD3159E475A007A00F2 /* OpenGL.framework */; };
 		A95EAFDB159E4AE2007A00F2 /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = A95EAFD9159E4AE2007A00F2 /* SDLMain.m */; };
 		A95EB134159E5C59007A00F2 /* SDL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A95EAFD1159E4754007A00F2 /* SDL.framework */; };
+		A9A23D6915ABC8AD0056745A /* libphysfs.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A23D6815ABC8AD0056745A /* libphysfs.2.1.0.dylib */; };
 		A9BB3D4F15A0E30C00D257CF /* libIL.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BB3D4E15A0E30C00D257CF /* libIL.1.dylib */; };
 		A9BB3D5015A0E33B00D257CF /* libIL.1.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = A9BB3D4E15A0E30C00D257CF /* libIL.1.dylib */; };
 /* End PBXBuildFile section */
@@ -31,7 +30,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1737E00C15A5ED3000F0C6C4 /* libphysfs.dylib in CopyFiles */,
 				A95C9B5B15A4BB0500F4FA30 /* libflamingo.dylib in CopyFiles */,
 				A9BB3D5015A0E33B00D257CF /* libIL.1.dylib in CopyFiles */,
 				A95EB134159E5C59007A00F2 /* SDL.framework in CopyFiles */,
@@ -44,7 +42,6 @@
 		1736F70F159CC7F000F469B1 /* crate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = crate.jpg; sourceTree = "<group>"; };
 		1736F711159CC82F00F469B1 /* FlamingoApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FlamingoApp.cpp; sourceTree = "<group>"; };
 		1736F713159CC86500F469B1 /* FlamingoApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlamingoApp.h; sourceTree = "<group>"; };
-		1737E00A15A5ED0C00F0C6C4 /* libphysfs.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libphysfs.dylib; path = usr/local/lib/libphysfs.dylib; sourceTree = SDKROOT; };
 		A93AE22C1597C58F002F1FE4 /* FlamingoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlamingoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93AE2301597C58F002F1FE4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A93AE2331597C58F002F1FE4 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -313,6 +310,7 @@
 		A95EB0F6159E4E0B007A00F2 /* ilu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ilu.h; sourceTree = "<group>"; };
 		A95EB0F7159E4E0B007A00F2 /* ilu_region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ilu_region.h; sourceTree = "<group>"; };
 		A95EB0F8159E4E0B007A00F2 /* physfs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = physfs.h; sourceTree = "<group>"; };
+		A9A23D6815ABC8AD0056745A /* libphysfs.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libphysfs.2.1.0.dylib; path = /usr/local/lib/libphysfs.2.1.0.dylib; sourceTree = "<absolute>"; };
 		A9BB3D4E15A0E30C00D257CF /* libIL.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libIL.1.dylib; path = /usr/local/Cellar/devil/1.7.8/lib/libIL.1.dylib; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -321,9 +319,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9A23D6915ABC8AD0056745A /* libphysfs.2.1.0.dylib in Frameworks */,
 				A95C9B5A15A4BAE800F4FA30 /* libflamingo.dylib in Frameworks */,
 				A9BB3D4F15A0E30C00D257CF /* libIL.1.dylib in Frameworks */,
-				1737E00B15A5ED0C00F0C6C4 /* libphysfs.dylib in Frameworks */,
 				A95EAFD4159E475A007A00F2 /* OpenGL.framework in Frameworks */,
 				A95EAFD2159E4754007A00F2 /* SDL.framework in Frameworks */,
 				A93AE2311597C58F002F1FE4 /* Cocoa.framework in Frameworks */,
@@ -363,7 +361,7 @@
 			children = (
 				A9BB3D4E15A0E30C00D257CF /* libIL.1.dylib */,
 				A95C9B5915A4BAE800F4FA30 /* libflamingo.dylib */,
-				1737E00A15A5ED0C00F0C6C4 /* libphysfs.dylib */,
+				A9A23D6815ABC8AD0056745A /* libphysfs.2.1.0.dylib */,
 				A95EAFD3159E475A007A00F2 /* OpenGL.framework */,
 				A95EAFD1159E4754007A00F2 /* SDL.framework */,
 				A93AE2301597C58F002F1FE4 /* Cocoa.framework */,

@@ -2,7 +2,7 @@
 from distutils.core import setup, Extension
 
 component_module = Extension('python/flamingo/ext/_component',
-                           sources=['swig/component_wrap.cxx', 'src/Entity/Entity.cpp'],
+                           sources=['swig/component_wrap.cxx', 'src/Entity/Entity.cpp', 'src/Entity/Component.cpp'],
                            extra_compile_args=['-Iinclude'])
 
 setup (name = 'example',

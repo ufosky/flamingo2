@@ -3,6 +3,7 @@
 %{
 #include "FL/Entity/Entity.h"
 #include "FL/Entity/Component.h"
+#include <string>
 %}
 
 typedef unsigned int EntityID;
@@ -30,10 +31,13 @@ class Component {
         Component(ComponentType type) : _type(type) {};
         virtual ~Component() {};
 
+        bool LoadScript(std::string script);
+
         Entity *entity;
 
     protected:
         ComponentType _type;
         ComponentID _id;
+        std::string _script;
 };
 

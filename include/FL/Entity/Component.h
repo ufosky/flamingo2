@@ -9,7 +9,9 @@ typedef unsigned int ComponentID;
 #include "FL/Entity/Entity.h"
 #include "FL/Event/Event.h"
 
+//#include <Python.h>
 #include <vector>
+#include <string>
 
 class Component {
 
@@ -17,7 +19,11 @@ class Component {
 
     public:
         Component(ComponentType type) : _type(type) {};
-        virtual ~Component() {};
+        virtual ~Component();
+
+        bool LoadScript(std::string script);
+        void ProcessScript(ComponentType comptype);
+        std::string script;
 
         Entity *entity;
 

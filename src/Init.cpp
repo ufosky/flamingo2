@@ -6,7 +6,7 @@
 
 #include "physfs.h"
 
-#include <iostream>
+#include <Python.h>
 
 int Flamingo::_Init(int argc, char *argv[]) {
 
@@ -47,6 +47,7 @@ int Flamingo::_Init(int argc, char *argv[]) {
     PHYSFS_init(argv[0]);
     PHYSFS_mount(PHYSFS_getBaseDir(), "/", 0);
     ilInit();
+    Py_Initialize();
 
     _eventManager = new EventManager();
     _entityManager = new EntityManager(_eventManager);
@@ -58,12 +59,14 @@ int Flamingo::_Init(int argc, char *argv[]) {
 
 	Entity *e = _entityManager->CreateEntity();
     _entityManager->AddComponent(e, new PositionComp());
-	_entityManager->AddComponent(e, new ScreenComp(&_displaySize));
+    ScreenComp *s = new ScreenComp(&_displaySize);
+    s->LoadScript(std::string("print 'hurr from Python!'\n"));
+	_entityManager->AddComponent(e, s);
 
 	e = _entityManager->CreateEntity();
     _entityManager->AddComponent(e, new PositionComp());
 	_entityManager->AddComponent(e, new ScreenComp(&r));
-    //_entityManager->DestroyEntity(e);
+    _entityManager->DestroyEntity(e);
 
     return this->Init(argc, argv);
 }
@@ -74,6 +77,8 @@ void Flamingo::_Cleanup() {
 
     delete _entityManager;
     delete _eventManager;
+
+    Py_Finalize();
 
     SDL_Quit();
 }
