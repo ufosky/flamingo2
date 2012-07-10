@@ -1,6 +1,6 @@
 CC=clang++
-CFLAGS=-Wall -I../../include -I/Library/Frameworks/SDL.framework/Headers
-LDFLAGS=-framework SDL -framework OpenGL -framework Cocoa -L../../lib -lflamingo -lIL -lphysfs
+CFLAGS=-Wall -I../../include -I/Library/Frameworks/SDL.framework/Headers -I/Library/Frameworks/Python.framework/Headers
+LDFLAGS=-framework SDL -framework OpenGL -framework Cocoa -framework Python -lIL -lphysfs -L../../lib -lflamingo
 
 TARGET   = FlamingoTest
 SRCEXT   = cpp

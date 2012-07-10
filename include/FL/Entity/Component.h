@@ -9,7 +9,8 @@ typedef unsigned int ComponentID;
 #include "FL/Entity/Entity.h"
 #include "FL/Event/Event.h"
 
-//#include <Python.h>
+#include "eigen3/Eigen/Dense"
+#include <Python.h>
 #include <vector>
 #include <string>
 
