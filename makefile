@@ -44,8 +44,7 @@ pyswig: buildswig $(SWIGWRAP)
 	ARCHFLAGS="-arch i386 -arch x86_64" python setup.py build_ext --inplace
 
 $(SWIGDIR)/%_wrap.cxx: $(SWIGDIR)/%.i
-	swig -python -c++ $<
-	@mv $(SWIGDIR)/*.py $(PYDIR)/
+	swig -python -c++ -outdir $(PYDIR)/ext $<
 
 tests: $(LIBDIR)/$(TARGET)
 	@echo "\nBuilding Tests...\n"
@@ -56,7 +55,7 @@ clean:
 	@$(RM) -r $(SWIGDIR)/*.cxx
 	@$(RM) -r $(LIBDIR)/*
 	@for dir in $(TESTDIRS); do $(MAKE) clean -C $$dir; done;
-	@$(MAKE) clean -C $(PYDIR)
+	@for f in $(shell find $(PYDIR)/ext/ ! \( -name '__init__.py' \) -type f); do $(RM) $$f; done;
 
 buildrepo:
 	@$(call make-repo)

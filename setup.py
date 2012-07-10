@@ -1,7 +1,7 @@
 
 from distutils.core import setup, Extension
 
-component_module = Extension('python/flamingo/_component',
+component_module = Extension('python/flamingo/ext/_component',
                            sources=['swig/component_wrap.cxx', 'src/Entity/Entity.cpp'],
                            extra_compile_args=['-Iinclude'])
 

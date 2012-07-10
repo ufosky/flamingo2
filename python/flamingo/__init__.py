@@ -1,4 +1,4 @@
 
-import component
+import ext
 import script
 
