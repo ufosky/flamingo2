@@ -19,12 +19,13 @@ class Component {
     friend class EntityManager;
 
     public:
-        Component(ComponentType type) : _type(type) {};
+        Component(ComponentType type) : script(NULL), _type(type) {};
         virtual ~Component();
 
-        bool LoadScript(std::string script);
-        void ProcessScript(ComponentType comptype);
-        std::string script;
+        bool LoadScript(std::string file, std::string module);
+        void ProcessScript();
+        std::string scriptname;
+        PyObject *script;
 
         Entity *entity;
 

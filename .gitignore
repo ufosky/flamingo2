@@ -1,7 +1,3 @@
-/build/
-/bin/
-/lib/
-/test/FlamingoTest/lib
 .DS_STORE
 .DS_STORE?
 *.swp
@@ -15,10 +11,15 @@
 project.xcworkspace/
 xcuserdata/
 
+/build/
+/bin/
+/lib/
 /swig/*
 !/swig/*.i
 /python/flamingo/ext/*
 !/python/flamingo/ext/__init__.py
 
 /test/FlamingoTest/FlamingoTest
+/test/FlamingoTest/lib
+/test/FlamingoTest/python
 

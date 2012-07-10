@@ -32,6 +32,8 @@ class Flamingo {
         InputSystem *inputSystem;
         ScreenSystem *screenSystem;
 
+        std::string pythonDir;
+
     public:
         Flamingo();
         ~Flamingo();

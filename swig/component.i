@@ -31,7 +31,7 @@ class Component {
         Component(ComponentType type) : _type(type) {};
         virtual ~Component() {};
 
-        bool LoadScript(std::string script);
+        bool LoadScript(std::string file, std::string module);
 
         Entity *entity;
 

@@ -11,9 +11,11 @@ all: $(TARGET)
 
 $(TARGET): clean
 	@ln -s ../../lib lib
+	@ln -s ../../python python
 	$(CC) $(SRCS) SDLMain.m $(CFLAGS) $(LDFLAGS) -o $@
 
 clean:
 	@$(RM) -rf lib
+	@$(RM) -rf python
 	@$(RM) -f $(TARGET)
 

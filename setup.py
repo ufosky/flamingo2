@@ -2,7 +2,8 @@
 from distutils.core import setup, Extension
 
 component_module = Extension('python/flamingo/ext/_component',
-                           sources=['swig/component_wrap.cxx', 'src/Entity/Entity.cpp', 'src/Entity/Component.cpp'],
+                           sources=['swig/component_wrap.cxx', 'src/Entity/Entity.cpp', 'src/Entity/Component.cpp', 'src/FLUtility.cpp'],
+                           libraries=['physfs'],
                            extra_compile_args=['-Iinclude'])
 
 setup (name = 'example',

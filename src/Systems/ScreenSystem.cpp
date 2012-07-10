@@ -92,10 +92,7 @@ void ScreenSystem::ProcessEntity(Entity *e) {
         glEnd();
     }
 
-    // Temp Script Test
-    if (s->script.size()) {
-        //PyRun_SimpleString(s->script.c_str());
-    }
+    s->ProcessScript();
 }
 
 void ScreenSystem::End() {

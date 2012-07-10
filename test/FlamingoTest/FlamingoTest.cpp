@@ -4,15 +4,16 @@
 #include "FL/Components/PositionComp.h"
 #include "FL/Components/SpriteComp.h"
 
-#include <iostream>
+#include "physfs.h"
 
 int FlamingoTest::Init(int argc, char *argv[]) {
-
+    
     Entity *e = _entityManager->CreateEntity();
     _entityManager->AddComponent(e, new TestComponent());
     _entityManager->AddComponent(e, new PositionComp(0, 0, 256, 256));
-    _entityManager->AddComponent(e, new SpriteComp(new Image("crate.jpg")));                                            
-
+    SpriteComp *spr = new SpriteComp(new Image("crate.jpg"));
+    _entityManager->AddComponent(e, spr);
+    
     return 0;
 }
 

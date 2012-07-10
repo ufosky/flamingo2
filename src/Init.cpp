@@ -1,6 +1,7 @@
 
 #include "FL/Flamingo.h"
 #include "FL/Components/FLComponents.h"
+#include "FL/FLUtility.h"
 
 #include "IL/il.h"
 
@@ -47,7 +48,12 @@ int Flamingo::_Init(int argc, char *argv[]) {
     PHYSFS_init(argv[0]);
     PHYSFS_mount(PHYSFS_getBaseDir(), "/", 0);
     ilInit();
+    
+    //// Python
     Py_Initialize();
+    pythonDir = "python/";
+    PHYSFS_mount(pythonDir.c_str(), "python", 0);
+    AddPythonPath(pythonDir);
 
     _eventManager = new EventManager();
     _entityManager = new EntityManager(_eventManager);
@@ -60,7 +66,7 @@ int Flamingo::_Init(int argc, char *argv[]) {
 	Entity *e = _entityManager->CreateEntity();
     _entityManager->AddComponent(e, new PositionComp());
     ScreenComp *s = new ScreenComp(&_displaySize);
-    s->LoadScript(std::string("print 'hurr from Python!'\n"));
+    s->LoadScript("scripts/testscript.py", "testscript");
 	_entityManager->AddComponent(e, s);
 
 	e = _entityManager->CreateEntity();
@@ -68,7 +74,9 @@ int Flamingo::_Init(int argc, char *argv[]) {
 	_entityManager->AddComponent(e, new ScreenComp(&r));
     _entityManager->DestroyEntity(e);
 
-    return this->Init(argc, argv);
+    
+    int res = this->Init(argc, argv);
+    return res;
 }
 
 void Flamingo::_Cleanup() {
