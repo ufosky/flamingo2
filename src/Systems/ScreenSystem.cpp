@@ -3,7 +3,6 @@
 #include "FL/Components/FLComponents.h"
 
 #include <Python.h>
-#include <iostream>
 
 #include <OpenGL/gl.h>
 #include "SDL.h"
@@ -95,7 +94,7 @@ void ScreenSystem::ProcessEntity(Entity *e) {
 
     // Temp Script Test
     if (s->script.size()) {
-        PyRun_SimpleString(s->script.c_str());
+        //PyRun_SimpleString(s->script.c_str());
     }
 }
 

@@ -7,8 +7,8 @@ class PositionComp;
 #include "FL/Entity/Component.h"
 #include "FL/Components/FlComponents.h"
 
-#include "Eigen/Dense"
-#include "Eigen/Geometry"
+#include "eigen3/Eigen/Dense"
+//#include "Eigen/Geometry"
 #include "SDL.h"
 
 class PositionComp : public Component {
