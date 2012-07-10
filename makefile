@@ -1,5 +1,5 @@
 CC=clang++
-CFLAGS=-c -Wall -Iinclude -I/Library/Frameworks/SDL.framework/Headers -I/System/Library/Frameworks/Python.framework/Headers
+CFLAGS=-c -Wall -Iinclude -I/Library/Frameworks/SDL.framework/Headers -I/Library/Frameworks/Python.framework/Headers
 LDFLAGS=-lIL -lphysfs -framework SDL -framework OpenGL -framework Python -dynamiclib
 
 TARGET    = libflamingo.dylib
