@@ -2,9 +2,9 @@
 import flamingo
 
 class TestScript(flamingo.script.Script):
-    @flamingo.script.process(2)
+    @flamingo.script.process(flamingo.ext.component.FL_COMPTYPE_SCREEN)
     def screen(self, entity):
-        print "TestScript!"
+        print "Script passed this entity: " + str(entity)
 
 
 FLSCRIPT = TestScript

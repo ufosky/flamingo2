@@ -1,10 +1,12 @@
 
 #include "FL/Entity/Entity.h"
+#include "FL/swigpyrun.h"
 
 #include <iostream>
 
 Entity::~Entity() {
     _types.clear();
+    Py_XDECREF(pyEntity);
 };
 
 bool Entity::HasComponentType(ComponentType type) {
@@ -20,5 +22,11 @@ bool Entity::HasComponentTypes(std::set<ComponentType> types) {
         }
     }
     return true;
+}
+
+void Entity::LoadPyEntity() {
+    swig_type_info *t = SWIG_TypeQuery("Entity *");
+    pyEntity = SWIG_NewPointerObj(this, t, SWIG_POINTER_OWN);
+    Py_INCREF(pyEntity);
 }
 

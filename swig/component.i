@@ -6,6 +6,8 @@
 #include <string>
 %}
 
+%include "include/FL/Components/FLComponentDefines.h"
+
 typedef unsigned int EntityID;
 typedef unsigned int ComponentType;
 typedef unsigned int ComponentID;
@@ -16,7 +18,6 @@ class Entity {
         ~Entity();
 
         bool HasComponentType(ComponentType type);
-        bool HasComponentTypes(std::set<ComponentType> types);
 
     protected:
         EntityID _id;

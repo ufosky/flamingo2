@@ -72,6 +72,8 @@ void EntityManager::AddComponent(Entity *e, Component *comp) {
         entities.resize(e->_index + 1);
     }
 
+    comp->entity = e;
+
     std::vector<Component *> &components = entities[e->_index];
     components.push_back(comp);
 
@@ -100,6 +102,8 @@ void EntityManager::RemoveComponent(Entity *e, Component *comp) {
     if (components.size() == 0) {
         e->_types.erase(comp->_type);
     }
+
+    comp->entity = NULL;
 
     _eventManager->FireEvent(ComponentEvent(FL_EVENT_COMPONENT_REMOVE, e, comp->_type));
 }

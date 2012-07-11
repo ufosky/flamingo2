@@ -56,8 +56,13 @@ bool Component::LoadScript(std::string file, std::string module) {
 }
 
 void Component::ProcessScript() {
-    if (script) {
-        PyObject *res = PyObject_CallMethod(script, "process", "iO", _type, Py_None);
+
+    if (entity->pyEntity == NULL) {
+        entity->LoadPyEntity();
+    }
+
+    if (script && entity->pyEntity) {
+        PyObject *res = PyObject_CallMethod(script, "process", "iO", _type, entity->pyEntity);
         Py_DECREF(res);
     }
 }

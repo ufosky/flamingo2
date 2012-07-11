@@ -1,5 +1,5 @@
 CC=clang++
-CFLAGS=-c -Wall -Iinclude -I/Library/Frameworks/SDL.framework/Headers -I/Library/Frameworks/Python.framework/Headers
+CFLAGS=-c -Wall -Iinclude -I/Library/Frameworks/SDL.framework/Headers -I/Library/Frameworks/Python.framework/Headers -DSWIG_TYPE_TABLE=flamingo
 LDFLAGS=-lIL -lphysfs -framework SDL -framework OpenGL -framework Python -dynamiclib
 
 TARGET    = libflamingo.dylib
@@ -20,8 +20,9 @@ OBJS     := $(patsubst %.$(SRCEXT),$(OBJDIR)/%.o,$(SRCS))
 
 SWIGSRC  := $(shell find $(SWIGDIR) -name '*.i')
 SWIGWRAP := $(patsubst %.i,%_wrap.cxx,$(SWIGSRC))
+SWIGINC  := $(patsubst %.i,include/FL/swig/%.h,$(SWIGSRC))
 
-all: clean $(LIBDIR)/$(TARGET) pyswig tests
+all: clean swigheaders $(LIBDIR)/$(TARGET) pyswig tests
 
 buildflamingo:
 	@echo "Building Flamingo..."
@@ -37,12 +38,14 @@ $(OBJDIR)/%.o: %.$(SRCEXT)
 #	@$(call make-depend,$<,$@,$(subst .o,.d,$@))
 	$(CC) $(CFLAGS) $< -o $@
 
+swigheaders:
+	swig -python -external-runtime include/FL/swigpyrun.h
+
 buildswig:
 	@echo "\nBuilding Swig Modules...\n"
 
-pyswig: buildswig $(SWIGWRAP)
+pyswig: $(SWIGWRAP)
 	ARCHFLAGS="-arch x86_64" python setup.py build_ext --inplace
-#	ARCHFLAGS="-arch i386 -arch x86_64" python setup.py build_ext --inplace
 
 $(SWIGDIR)/%_wrap.cxx: $(SWIGDIR)/%.i
 	swig -python -c++ -outdir $(PYDIR)/ext $<

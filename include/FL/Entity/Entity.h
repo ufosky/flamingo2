@@ -5,9 +5,13 @@
 class Entity;
 typedef unsigned int EntityID;
 
+#include "eigen3/Eigen/Dense"
+
 #include "FL/Entity/Component.h"
 #include "FL/Entity/EntityManager.h"
 #include "FL/Event/FLEvents.h"
+
+#include <Python.h>
 
 #include <map>
 #include <set>
@@ -16,19 +20,24 @@ typedef unsigned int EntityID;
 class Entity {
 
     friend class EntityManager;
+    friend class Component;
 
     public:
-        Entity(EntityID id) : _id(id) {};
+        Entity(EntityID id) : pyEntity(NULL), _id(id) {};
         ~Entity();
 
         bool HasComponentType(ComponentType type);
         bool HasComponentTypes(std::set<ComponentType> types);
+
 
     protected:
         EntityID _id;
         unsigned int _index;
         std::set<ComponentType> _types;
         EntityManager *_entityManager;
+        PyObject *pyEntity;
+
+        void LoadPyEntity();
 };
 
 struct EntityEvent : public EventData {

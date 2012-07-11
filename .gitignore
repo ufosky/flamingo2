@@ -23,3 +23,5 @@ xcuserdata/
 /test/FlamingoTest/lib
 /test/FlamingoTest/python
 
+/include/FL/swigpyrun.h
+
