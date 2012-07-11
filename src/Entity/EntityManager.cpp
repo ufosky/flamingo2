@@ -1,6 +1,6 @@
 
 #include "FL/Entity/EntityManager.h"
-#include "FL/Components/FLComponents.h"
+#include "FL/Components/FLComponentDefines.h"
 #include "FL/Event/FLEvents.h"
 
 
@@ -49,6 +49,7 @@ Entity *EntityManager::CreateEntity() {
     }
 
     _eventManager->FireEvent(EntityEvent(FL_EVENT_ENTITY_CREATE, e));
+    e->_entityManager = this;
     return e;
 }
 
@@ -163,6 +164,10 @@ Component *EntityManager::GetComponent(Entity *e, ComponentType type) {
     std::vector<std::vector<Component *> > &entities = _components[type];
 
     if (e->_index >= entities.size()) {
+        return NULL;
+    }
+
+    if (!entities[e->_index].size()) {
         return NULL;
     }
 

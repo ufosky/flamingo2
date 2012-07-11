@@ -18,6 +18,7 @@ class Entity {
         ~Entity();
 
         bool HasComponentType(ComponentType type);
+        Component *GetAs(ComponentType type);
 
     protected:
         EntityID _id;

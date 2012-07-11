@@ -23,11 +23,12 @@ class Entity {
     friend class Component;
 
     public:
-        Entity(EntityID id) : pyEntity(NULL), _id(id) {};
+        Entity(EntityID id) : _id(id), pyEntity(NULL) {};
         ~Entity();
 
         bool HasComponentType(ComponentType type);
         bool HasComponentTypes(std::set<ComponentType> types);
+        Component *GetAs(ComponentType type);
 
 
     protected:

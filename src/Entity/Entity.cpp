@@ -24,6 +24,12 @@ bool Entity::HasComponentTypes(std::set<ComponentType> types) {
     return true;
 }
 
+#include <vector>
+Component *Entity::GetAs(ComponentType type) {
+
+    return this->_entityManager->GetComponent(this, type);
+}
+
 void Entity::LoadPyEntity() {
     swig_type_info *t = SWIG_TypeQuery("Entity *");
     pyEntity = SWIG_NewPointerObj(this, t, SWIG_POINTER_OWN);

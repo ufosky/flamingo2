@@ -56,7 +56,10 @@ void background(ScreenComp *s) {
 
 void ScreenSystem::ProcessEntity(Entity *e) {
 
-    ScreenComp *s = (ScreenComp *)_entityManager->GetComponent(e, FL_COMPTYPE_SCREEN);
+    ScreenComp *s = (ScreenComp *)e->GetAs(FL_COMPTYPE_SCREEN);
+    if (s == NULL) {
+        return;
+    }
 
     glViewport(s->local_rect.x, s->local_rect.y, s->local_rect.w, s->local_rect.h);
     glMatrixMode(GL_PROJECTION);
@@ -72,8 +75,8 @@ void ScreenSystem::ProcessEntity(Entity *e) {
     SpriteComp *spr;
     PositionComp *pos;
     for (std::set<Entity *>::const_iterator it = _sprites.begin(); it != _sprites.end(); it++) {
-        spr = (SpriteComp *)_entityManager->GetComponent(*it, FL_COMPTYPE_SPRITE);
-        pos = (PositionComp *)_entityManager->GetComponent(*it, FL_COMPTYPE_POSITION);
+        spr = (SpriteComp *)(*it)->GetAs(FL_COMPTYPE_SPRITE);
+        pos = (PositionComp *)(*it)->GetAs(FL_COMPTYPE_POSITION);
 
         glTranslatef(512, 384, 0);
         glTranslatef(pos->pos[0], pos->pos[1], 0);
