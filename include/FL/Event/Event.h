@@ -14,7 +14,7 @@ class EventListener {
     public:
         virtual ~EventListener() {};
 
-        virtual bool HandleEvent(EventData const &data) = 0;
+        virtual bool HandleEvent(EventData *data) = 0;
 };
 
 #endif

@@ -9,7 +9,6 @@ typedef unsigned int ComponentID;
 #include "FL/Entity/Entity.h"
 #include "FL/Event/Event.h"
 
-//#include "eigen3/Eigen/Dense"
 #include <Python.h>
 #include <vector>
 #include <string>
@@ -34,10 +33,11 @@ class Component {
         ComponentID _id;
 };
 
-struct ComponentEvent : public EventData {
-    ComponentEvent(EventType _type, Entity *_e, ComponentType _ctype) : EventData(_type), e(_e), ctype(_ctype) {};
-    Entity *e;
-    ComponentType ctype;
+class ComponentEvent : public EventData {
+    public:
+        ComponentEvent(EventType _type, Entity *_e, ComponentType _ctype) : EventData(_type), e(_e), ctype(_ctype) {};
+        Entity *e;
+        ComponentType ctype;
 };
 
 #endif

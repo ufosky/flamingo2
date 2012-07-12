@@ -15,7 +15,7 @@ class EntitySystem : EventListener {
         virtual ~EntitySystem();
 
         void Process();
-        bool HandleEvent(EventData const &event);
+        bool HandleEvent(EventData *event);
     
     protected:
 

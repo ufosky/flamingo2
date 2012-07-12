@@ -20,6 +20,9 @@ class Entity {
         bool HasComponentType(ComponentType type);
         Component *GetAs(ComponentType type);
 
+        void AddComponent(Component *comp);
+        void RemoveComponent(Component *comp);
+
     protected:
         EntityID _id;
         unsigned int _index;
@@ -41,5 +44,16 @@ class Component {
         ComponentType _type;
         ComponentID _id;
         std::string _script;
+};
+
+struct EntityEvent : public EventData {
+    EntityEvent(EventType _type, Entity *_e) : EventData(_type), e(_e) {};
+    Entity *e;
+};
+
+struct ComponentEvent : public EventData {
+    ComponentEvent(EventType _type, Entity *_e, ComponentType _ctype) : EventData(_type), e(_e), ctype(_ctype) {};
+    Entity *e;
+    ComponentType ctype;
 };
 

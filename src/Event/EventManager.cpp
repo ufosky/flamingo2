@@ -61,7 +61,8 @@ void EventManager::RemoveAllListeners() {
     _globals.clear();
 }
 
-void EventManager::FireEvent(EventData const &event) {
+void EventManager::FireEvent(EventData *event) {
+
 
     for (EventListenerList::const_iterator it = _globals.begin(); it != _globals.end(); it++) {
         if ((*it)->HandleEvent(event)) {
@@ -69,7 +70,7 @@ void EventManager::FireEvent(EventData const &event) {
         }
     }
 
-    EventListenerMap::iterator it = _listeners.find(event.type);
+    EventListenerMap::iterator it = _listeners.find(event->type);
     if (it == _listeners.end()) {
         return;
     }

@@ -6,7 +6,9 @@
 #include <iostream>
 
 Component::~Component() {
-    Py_XDECREF(script);
+    if (script != NULL) {
+        Py_DECREF(script);
+    }
 }
 
 bool Component::LoadScript(std::string file, std::string module) {

@@ -24,15 +24,24 @@ bool Entity::HasComponentTypes(std::set<ComponentType> types) {
     return true;
 }
 
-#include <vector>
+void Entity::LoadPyEntity() {
+    swig_type_info *t = SWIG_TypeQuery("Entity *");
+    pyEntity = SWIG_NewPointerObj(this, t, SWIG_POINTER_OWN);
+    Py_INCREF(pyEntity);
+}
+
 Component *Entity::GetAs(ComponentType type) {
 
     return this->_entityManager->GetComponent(this, type);
 }
 
-void Entity::LoadPyEntity() {
-    swig_type_info *t = SWIG_TypeQuery("Entity *");
-    pyEntity = SWIG_NewPointerObj(this, t, SWIG_POINTER_OWN);
-    Py_INCREF(pyEntity);
+void Entity::AddComponent(Component *comp) {
+
+    this->_entityManager->AddComponent(this, comp);
+}
+
+void Entity::RemoveComponent(Component *comp) {
+
+    this->_entityManager->RemoveComponent(this, comp);
 }
 

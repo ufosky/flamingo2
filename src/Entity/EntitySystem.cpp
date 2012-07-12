@@ -29,25 +29,26 @@ void EntitySystem::Process() {
     }
 }
 
-bool EntitySystem::HandleEvent(EventData const &event) {
+bool EntitySystem::HandleEvent(EventData *event) {
     
-    const ComponentEvent &data = static_cast<const ComponentEvent&>(event);
+    //const ComponentEvent &data = static_cast<const ComponentEvent&>(event);
+    ComponentEvent *data = static_cast<ComponentEvent *>(event);
     
-    switch(event.type) {
+    switch(event->type) {
         case FL_EVENT_COMPONENT_ADD:
             
-            if (!HandleComponentAdd(data.e, data.ctype)) {
+            if (!HandleComponentAdd(data->e, data->ctype)) {
             
-                if (data.e->HasComponentTypes(_types)) {
-                    _active.insert(data.e);
+                if (data->e->HasComponentTypes(_types)) {
+                    _active.insert(data->e);
                 }
             }
             break;
 
         case FL_EVENT_COMPONENT_REMOVE:
 
-            if (!HandleComponentRemove(data.e, data.ctype)) {
-                _active.erase(data.e);
+            if (!HandleComponentRemove(data->e, data->ctype)) {
+                _active.erase(data->e);
             }
             break;
     }

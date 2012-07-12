@@ -20,7 +20,7 @@ class EventManager {
 
         void RemoveAllListeners();
 
-        void FireEvent(EventData const &event);
+        void FireEvent(EventData *event);
         
     protected:
 

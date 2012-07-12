@@ -48,7 +48,7 @@ Entity *EntityManager::CreateEntity() {
         _entities.push_back(e);
     }
 
-    _eventManager->FireEvent(EntityEvent(FL_EVENT_ENTITY_CREATE, e));
+    _eventManager->FireEvent(new EntityEvent(FL_EVENT_ENTITY_CREATE, e));
     e->_entityManager = this;
     return e;
 }
@@ -59,7 +59,7 @@ void EntityManager::DestroyEntity(Entity *e) {
     _entities[e->_index] = NULL;
     RemoveAllComponents(e);
 
-    _eventManager->FireEvent(EntityEvent(FL_EVENT_ENTITY_DELETE, e));
+    _eventManager->FireEvent(new EntityEvent(FL_EVENT_ENTITY_DELETE, e));
     delete e;
 }
 
@@ -79,7 +79,7 @@ void EntityManager::AddComponent(Entity *e, Component *comp) {
     components.push_back(comp);
 
     e->_types.insert(comp->_type);
-    _eventManager->FireEvent(ComponentEvent(FL_EVENT_COMPONENT_ADD, e, comp->_type));
+    _eventManager->FireEvent(new ComponentEvent(FL_EVENT_COMPONENT_ADD, e, comp->_type));
 }
 
 void EntityManager::RemoveComponent(Entity *e, Component *comp) {
@@ -106,13 +106,12 @@ void EntityManager::RemoveComponent(Entity *e, Component *comp) {
 
     comp->entity = NULL;
 
-    _eventManager->FireEvent(ComponentEvent(FL_EVENT_COMPONENT_REMOVE, e, comp->_type));
+    _eventManager->FireEvent(new ComponentEvent(FL_EVENT_COMPONENT_REMOVE, e, comp->_type));
 }
 
+#include <iostream>
+
 void EntityManager::_RemoveAllComponents(Entity *e, ComponentType type) {
-    //if (_components.size() <= type) {
-    //    return;
-    //}
     std::vector<std::vector<Component *> > &entities = _components[type];
 
     if (e->_index >= entities.size()) {
@@ -121,11 +120,9 @@ void EntityManager::_RemoveAllComponents(Entity *e, ComponentType type) {
 
     std::vector<Component *> &components = entities[e->_index];
     while (components.size()) {
-
-        delete components.back();
+        
         components.pop_back();
-
-        _eventManager->FireEvent(ComponentEvent(FL_EVENT_COMPONENT_REMOVE, e, type));
+        _eventManager->FireEvent(new ComponentEvent(FL_EVENT_COMPONENT_REMOVE, e, type));
     }
 
     components.clear();

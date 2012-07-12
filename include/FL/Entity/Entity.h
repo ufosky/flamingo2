@@ -30,6 +30,8 @@ class Entity {
         bool HasComponentTypes(std::set<ComponentType> types);
         Component *GetAs(ComponentType type);
 
+        void AddComponent(Component *comp);
+        void RemoveComponent(Component *comp);
 
     protected:
         EntityID _id;
@@ -41,9 +43,10 @@ class Entity {
         void LoadPyEntity();
 };
 
-struct EntityEvent : public EventData {
-    EntityEvent(EventType _type, Entity *_e) : EventData(_type), e(_e) {};
-    Entity *e;
+class EntityEvent : public EventData {
+    public:
+        EntityEvent(EventType _type, Entity *_e) : EventData(_type), e(_e) {};
+        Entity *e;
 };
 
 #endif
