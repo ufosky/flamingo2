@@ -19,6 +19,7 @@ xcuserdata/
 /python/flamingo/*
 !/python/flamingo/__init__.py
 !/python/flamingo/script.py
+!/python/flamingo/components/
 /python/flamingo/components/*
 !/python/flamingo/components/__init__.py
 
