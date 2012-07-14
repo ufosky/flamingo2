@@ -1,6 +1,6 @@
 
-#ifndef _ENTITY_H_
-#define _ENTITY_H_
+#ifndef ENTITY_H_
+#define ENTITY_H_
 
 class Entity;
 typedef unsigned int EntityID;
@@ -32,6 +32,8 @@ class Entity {
 
         void AddComponent(Component *comp);
         void RemoveComponent(Component *comp);
+
+        EntityID GetID() { return _id; };
 
     protected:
         EntityID _id;

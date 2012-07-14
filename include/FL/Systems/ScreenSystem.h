@@ -1,6 +1,6 @@
 
-#ifndef _SCREENSYSTEM_H_
-#define _SCREENSYSTEM_H_
+#ifndef SCREENSYSTEM_H_
+#define SCREENSYSTEM_H_
 
 #include "FL/Entity/EntitySystem.h"
 

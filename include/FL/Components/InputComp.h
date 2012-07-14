@@ -1,6 +1,6 @@
 
-#ifndef _INPUTCOMP_H_
-#define _INPUTCOMP_H_ 
+#ifndef INPUTCOMP_H_
+#define INPUTCOMP_H_ 
 
 class InputComp;
 

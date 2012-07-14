@@ -1,6 +1,6 @@
 
-#ifndef _INPUTSYSTEM_H_
-#define _INPUTSYSTEM_H_
+#ifndef INPUTSYSTEM_H_
+#define INPUTSYSTEM_H_
 
 #include "FL/Entity/EntitySystem.h"
 

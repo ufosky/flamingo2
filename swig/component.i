@@ -23,6 +23,8 @@ class Entity {
         void AddComponent(Component *comp);
         void RemoveComponent(Component *comp);
 
+        EntityID GetID();
+
     protected:
         EntityID _id;
         unsigned int _index;
@@ -39,6 +41,9 @@ class Component {
         bool LoadScript(std::string file, std::string module);
 
         Entity *entity;
+        
+        ComponentID GetID();
+        ComponentType GetType();
 
     protected:
         ComponentType _type;

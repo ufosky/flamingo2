@@ -1,6 +1,6 @@
 
-#ifndef _FLEVENTS_H_
-#define _FLEVENTS_H_
+#ifndef FLEVENTS_H_
+#define FLEVENTS_H_
 
 #include "FL/Event/Event.h"
 

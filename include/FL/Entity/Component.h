@@ -1,6 +1,6 @@
 
-#ifndef _COMPONENT_H_
-#define _COMPONENT_H_
+#ifndef COMPONENT_H_
+#define COMPONENT_H_
 
 class Component;
 typedef unsigned int ComponentType;
@@ -27,6 +27,9 @@ class Component {
         PyObject *script;
 
         Entity *entity;
+
+        ComponentID GetID() { return _id; };
+        ComponentType GetType() { return _type; };
 
     protected:
         ComponentType _type;

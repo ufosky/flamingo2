@@ -1,6 +1,6 @@
 
-#ifndef _ENTITYMANAGER_H_
-#define _ENTITYMANAGER_H_
+#ifndef ENTITYMANAGER_H_
+#define ENTITYMANAGER_H_
 
 class EntityManager;
 

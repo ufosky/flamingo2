@@ -1,6 +1,6 @@
 
-#ifndef _EVENT_H_
-#define _EVENT_H_
+#ifndef EVENT_H_
+#define EVENT_H_
 
 typedef unsigned int EventType;
 

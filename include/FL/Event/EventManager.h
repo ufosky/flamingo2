@@ -1,6 +1,6 @@
 
-#ifndef _EVENTMANAGER_H_
-#define _EVENTMANAGER_H_
+#ifndef EVENTMANAGER_H_
+#define EVENTMANAGER_H_
 
 #include "FL/Event/Event.h"
 
@@ -24,7 +24,7 @@ class EventManager {
         
     protected:
 
-        typedef std::list<EventListener * > EventListenerList;
+        typedef std::list<EventListener *> EventListenerList;
         typedef std::map<EventType, EventListenerList > EventListenerMap;
         typedef std::pair<EventType, EventListenerList > EventListenerPair;
 

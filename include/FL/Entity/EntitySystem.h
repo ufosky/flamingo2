@@ -1,6 +1,6 @@
 
-#ifndef _ENTITYSYSTEM_H_
-#define _ENTITYSYSTEM_H_
+#ifndef ENTITYSYSTEM_H_
+#define ENTITYSYSTEM_H_
 
 #include "FL/Entity/EntityManager.h"
 #include "FL/Event/Event.h"
@@ -16,6 +16,9 @@ class EntitySystem : EventListener {
 
         void Process();
         bool HandleEvent(EventData *event);
+
+        const std::set<Entity *> &GetEntities() { return _active; };
+        const std::set<ComponentType> &GetTypes() { return _types; };
     
     protected:
 
