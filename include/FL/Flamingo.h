@@ -12,7 +12,7 @@
 #include "FL/Event/FLEvents.h"
 
 #include "FL/Entity/EntityManager.h"
-#include "FL/Components/FLComponents.h"
+//#include "FL/Components/FLComponents.h"
 
 #include "FL/Systems/FLSystems.h"
 

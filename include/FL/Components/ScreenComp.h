@@ -5,7 +5,7 @@
 class ScreenComp;
 
 #include "FL/Entity/Component.h"
-#include "FL/Components/FlComponents.h"
+#include "FL/Components/FLComponents.h"
 
 #include "SDL.h"
 

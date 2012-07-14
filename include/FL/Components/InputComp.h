@@ -5,7 +5,7 @@
 class InputComp;
 
 #include "FL/Entity/Component.h"
-#include "FL/Components/FlComponents.h"
+#include "FL/Components/FLComponents.h"
 
 
 class InputComp : public Component {

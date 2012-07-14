@@ -79,19 +79,19 @@ void ScreenSystem::ProcessEntity(Entity *e) {
         pos = (PositionComp *)(*it)->GetAs(FL_COMPTYPE_POSITION);
 
         glTranslatef(512, 384, 0);
-        glTranslatef(pos->pos[0], pos->pos[1], 0);
+        glTranslatef(pos->GetX(), pos->GetY(), 0);
         
         //// Test
         glBindTexture(GL_TEXTURE_2D, spr->img->img);
         glBegin(GL_QUADS);
-            glTexCoord2f(0, 0);
-            glVertex2f(pos->size(0,0), pos->size(1,0));
-            glTexCoord2f(1, 0);
-            glVertex2f(pos->size(0,1), pos->size(1,1));
-            glTexCoord2f(1, 1);
-            glVertex2f(pos->size(0,2), pos->size(1,2));
-            glTexCoord2f(0, 1);
-            glVertex2f(pos->size(0,3), pos->size(1,3));
+            //glTexCoord2f(0, 0);
+            //glVertex2f(pos->size(0,0), pos->size(1,0));
+            //glTexCoord2f(1, 0);
+            //glVertex2f(pos->size(0,1), pos->size(1,1));
+            //glTexCoord2f(1, 1);
+            //glVertex2f(pos->size(0,2), pos->size(1,2));
+            //glTexCoord2f(0, 1);
+            //glVertex2f(pos->size(0,3), pos->size(1,3));
         glEnd();
     }
 

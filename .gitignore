@@ -16,8 +16,11 @@ xcuserdata/
 /lib/
 /swig/*
 !/swig/*.i
-/python/flamingo/ext/*
-!/python/flamingo/ext/__init__.py
+/python/flamingo/*
+!/python/flamingo/__init__.py
+!/python/flamingo/script.py
+/python/flamingo/components/*
+!/python/flamingo/components/__init__.py
 
 /test/FlamingoTest/FlamingoTest
 /test/FlamingoTest/lib

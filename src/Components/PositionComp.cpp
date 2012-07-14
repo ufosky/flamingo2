@@ -4,46 +4,109 @@
 #include <iostream>
 
 PositionComp::PositionComp() : Component(FL_COMPTYPE_POSITION) {
-    pos << 0, 0, 0;
-    size << 0, 0, 0, 0,
-            0, 0, 0, 0,
-            0, 0, 0, 0;
+    _x = 0;
+    _y = 0;
+    _w = 0;
+    _h = 0;
+    _Reset();
 }
 
 PositionComp::PositionComp(Eigen::Vector3f *p) : Component(FL_COMPTYPE_POSITION) {
-    pos = *p;
-    size << 0, 0, 0, 0,
-            0, 0, 0, 0,
-            0, 0, 0, 0;
-}
-
-PositionComp::PositionComp(Eigen::Vector3f *p, Eigen::Matrix<float,3,4> *s) : Component(FL_COMPTYPE_POSITION) {
-    pos = *p;
-    size = *s;
+    _x = (*p)(0);
+    _y = (*p)(1);
+    _w = 0;
+    _h = 0;
+    _Reset();
 }
 
 PositionComp::PositionComp(float x, float y) : Component(FL_COMPTYPE_POSITION) {
-    pos << x, y, 0;
-    size << 0, 0, 0, 0,
-            0, 0, 0, 0,
-            0, 0, 0, 0;
+    _x = x;
+    _y = y;
+    _w = 0;
+    _h = 0;
+    _Reset();
 }
 
 PositionComp::PositionComp(float x, float y, float w, float h) : Component(FL_COMPTYPE_POSITION) {
-    pos << x, y, 0;
-    size << -w / 2, w / 2,  w / 2, -w / 2,
-            -h / 2, -h / 2, h / 2, h / 2,
-            0,      0,      0,     0;
+    _x = x;
+    _y = y;
+    _w = w;
+    _h = h;
+    _Reset();
 }
 
 PositionComp::PositionComp(SDL_Rect *r) : Component(FL_COMPTYPE_POSITION) {
-    pos << r->x + r->w / 2, r->y - r->h / 2, 0;
-    size << -r->w / 2, r->w / 2,  r->w / 2, -r->w / 2,
-            -r->h / 2, -r->h / 2, r->h / 2, r->h / 2,
-            0,         0,         0,        0;
+    _x = r->x;
+    _y = r->y;
+    _w = r->w;
+    _h = r->h;
+    _Reset();
 }
 
 PositionComp::~PositionComp() {
+
+}
+
+void PositionComp::_Reset() {
+    _pos << _x, _y, 0;
+    _dim << -_w / 2, _w / 2,  _w / 2, -_w / 2,
+            -_h / 2, -_h / 2, _h / 2, _h / 2,
+            0,       0,       0,      0;
+}
+
+float PositionComp::GetX() {
+    return _x;
+}
+
+void PositionComp::SetX(float x) {
+    _x = x;
+    _Reset();
+}
+
+
+float PositionComp::GetY() {
+    return _y;
+}
+
+void PositionComp::SetY(float y) {
+    _y = y;
+    _Reset();
+}
+
+
+float PositionComp::GetWidth() {
+    return _w;
+}
+
+void PositionComp::SetWidth(float w) {
+    _w = w;
+    _Reset();
+}
+
+
+float PositionComp::GetHeight() {
+    return _h;
+}
+
+void PositionComp::SetHeight(float h) {
+    _h = h;
+    _Reset();
+}
+
+
+void PositionComp::SetPos(float x, float y) {
+    _x = x;
+    _y = y;
+    _Reset();
+}
+
+void PositionComp::SetDim(float w, float h) {
+    _w = w;
+    _h = h;
+    _Reset();
+}
+
+const Eigen::Vector3f &PositionComp::GetPoint(int corner) {
 
 }
 

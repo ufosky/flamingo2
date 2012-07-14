@@ -51,14 +51,14 @@ class Component {
         std::string _script;
 };
 
-struct EntityEvent : public EventData {
-    EntityEvent(EventType _type, Entity *_e) : EventData(_type), e(_e) {};
-    Entity *e;
-};
-
-struct ComponentEvent : public EventData {
-    ComponentEvent(EventType _type, Entity *_e, ComponentType _ctype) : EventData(_type), e(_e), ctype(_ctype) {};
-    Entity *e;
-    ComponentType ctype;
-};
+//struct EntityEvent : public EventData {
+//    EntityEvent(EventType _type, Entity *_e) : EventData(_type), e(_e) {};
+//    Entity *e;
+//};
+//
+//struct ComponentEvent : public EventData {
+//    ComponentEvent(EventType _type, Entity *_e, ComponentType _ctype) : EventData(_type), e(_e), ctype(_ctype) {};
+//    Entity *e;
+//    ComponentType ctype;
+//};
 
