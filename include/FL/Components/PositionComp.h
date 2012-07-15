@@ -35,7 +35,9 @@ class PositionComp : public Component {
         void SetPos(float x, float y);
         void SetDim(float w, float h);
 
-        const Eigen::Vector3f &GetPoint(int corner);
+        const Eigen::Vector3f *GetPoint(int corner);
+        float GetCornerX(int corner);
+        float GetCornerY(int corner);
 
     private:
         float _x, _y, _w, _h;

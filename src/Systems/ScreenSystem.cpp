@@ -84,14 +84,17 @@ void ScreenSystem::ProcessEntity(Entity *e) {
         //// Test
         glBindTexture(GL_TEXTURE_2D, spr->img->img);
         glBegin(GL_QUADS);
-            //glTexCoord2f(0, 0);
-            //glVertex2f(pos->size(0,0), pos->size(1,0));
-            //glTexCoord2f(1, 0);
-            //glVertex2f(pos->size(0,1), pos->size(1,1));
-            //glTexCoord2f(1, 1);
-            //glVertex2f(pos->size(0,2), pos->size(1,2));
-            //glTexCoord2f(0, 1);
-            //glVertex2f(pos->size(0,3), pos->size(1,3));
+            glTexCoord2f(0, 0);
+            glVertex2f(pos->GetCornerX(0), pos->GetCornerY(0));
+            
+            glTexCoord2f(1, 0);
+            glVertex2f(pos->GetCornerX(1), pos->GetCornerY(1));
+            
+            glTexCoord2f(1, 1);
+            glVertex2f(pos->GetCornerX(2), pos->GetCornerY(2));
+            
+            glTexCoord2f(0, 1);
+            glVertex2f(pos->GetCornerX(3), pos->GetCornerY(3));
         glEnd();
     }
 

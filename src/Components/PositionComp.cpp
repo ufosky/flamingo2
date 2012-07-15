@@ -106,7 +106,21 @@ void PositionComp::SetDim(float w, float h) {
     _Reset();
 }
 
-const Eigen::Vector3f &PositionComp::GetPoint(int corner) {
+const Eigen::Vector3f *PositionComp::GetPoint(int corner) {
 
+    if (corner <= 3) {
+        return new Eigen::Vector3f(_dim.col(corner));
+    }
+    return NULL;
+}
+
+float PositionComp::GetCornerX(int corner) {
+
+    return _dim(0, corner);
+}
+
+float PositionComp::GetCornerY(int corner) {
+
+    return _dim(1, corner);
 }
 
