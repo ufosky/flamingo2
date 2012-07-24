@@ -12,10 +12,10 @@
 #include "FL/Event/FLEvents.h"
 
 #include "FL/Entity/EntityManager.h"
-//#include "FL/Components/FLComponents.h"
 
 #include "FL/Systems/FLSystems.h"
 
+#include "FL/Time.h"
 
 class Flamingo {
 
@@ -25,6 +25,8 @@ class Flamingo {
     protected:
         EventManager *_eventManager;
         EntityManager *_entityManager;
+
+        Clock *_masterClock;
 
         SDL_Surface *_display;
         SDL_Rect _displaySize;

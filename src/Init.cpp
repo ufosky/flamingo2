@@ -59,6 +59,8 @@ int Flamingo::_Init(int argc, char *argv[]) {
     _entityManager = new EntityManager(_eventManager);
     inputSystem = new InputSystem(_eventManager, _entityManager);
 
+    _masterClock = new Clock();
+
     //// Screens
     screenSystem = new ScreenSystem(_eventManager, _entityManager);
 	SDL_Rect r = {0, 100, 640, 240};

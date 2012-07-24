@@ -12,19 +12,43 @@ Flamingo::~Flamingo() {
 
 }
 
+#include <iostream>
+
 int Flamingo::Execute(int argc, char *argv[]) {
 
     if (_Init(argc, argv) == -1) {
         return -1;
     }
 
+    double timestep = 1.0 / 2;
+    double accumulator = 0, interpolation;
+
+    long int oldTime, newTime, temp, deltaTime;
+    oldTime = _masterClock->GetTime();
+
     while (_running) {
+
+        _masterClock->Sync();
+        oldTime = newTime;
+        newTime = _masterClock->GetTime();
+        deltaTime = newTime - oldTime;
+        accumulator += deltaTime;
+
         inputSystem->Process();
         if (inputSystem->quit) {
             _running = false;
             break;
         }
-        _Step();
+
+        while (accumulator >= timestep) {
+            accumulator -= timestep;
+            _Step();
+        }
+
+        std::cout << _masterClock->GetFPS() << "\n";
+
+        interpolation = accumulator / timestep;
+
         _Render();
     }
 
@@ -34,8 +58,7 @@ int Flamingo::Execute(int argc, char *argv[]) {
 
 void Flamingo::_Step() {
 
-    this->PreStep();
-    
-    this->PostStep();
+    //this->PreStep();
+    //this->PostStep();
 }
 
