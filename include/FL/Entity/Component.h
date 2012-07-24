@@ -19,6 +19,9 @@ class Component {
 
     public:
         Component(ComponentType type) : script(NULL), _type(type) {};
+        Component(ComponentType type, std::string file, std::string module) : script(NULL), _type(type) {
+            LoadScript(file, module);
+        }
         virtual ~Component();
 
         bool LoadScript(std::string file, std::string module);
