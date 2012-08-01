@@ -64,7 +64,7 @@ void Component::ProcessScript() {
     }
 
     if (script && entity->pyEntity) {
-        PyObject *res = PyObject_CallMethod(script, "process", "iO", _type, entity->pyEntity);
+        PyObject *res = PyObject_CallMethod(script, (char *)"process", (char *)"iO", _type, entity->pyEntity);
         Py_DECREF(res);
     }
 }

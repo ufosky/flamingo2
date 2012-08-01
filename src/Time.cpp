@@ -15,7 +15,7 @@ Clock::~Clock() {
 
 void Clock::Sync() {
 
-    if (flags && CLOCK_PAUSED) {
+    if (flags & CLOCK_PAUSED) {
         offset = (long int)clock() - current;
     } else {
         last = current;
@@ -44,6 +44,6 @@ void Clock::Resume() {
 }
 
 bool Clock::IsPaused() {
-    return flags && CLOCK_PAUSED;
+    return flags & CLOCK_PAUSED;
 }
 

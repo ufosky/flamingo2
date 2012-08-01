@@ -23,7 +23,7 @@ int Flamingo::Execute(int argc, char *argv[]) {
     double timestep = 1.0 / 2;
     double accumulator = 0, interpolation;
 
-    long int oldTime, newTime, temp, deltaTime;
+    long int oldTime, newTime, deltaTime;
     oldTime = _masterClock->GetTime();
 
     while (_running) {
