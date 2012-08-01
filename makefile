@@ -61,7 +61,7 @@ clean:
 	@$(RM) -r $(SWIGDIR)/events/*.cxx
 	@$(RM) -r $(LIBDIR)/*
 	@for dir in $(TESTDIRS); do $(MAKE) clean -C $$dir; done;
-	@for f in $(shell find $(PYDIR)/* ! \( -name '__init__.py' \) ! \( -name 'script.py' \) -type f); do $(RM) $$f; done;
+	@for f in $(shell find $(PYDIR)/* ! \( -name '__init__.py' \) ! \( -name 'script.py' \) ! \( -name 'inputmanager.py' \) -type f); do $(RM) $$f; done;
 
 buildrepo:
 	@$(call make-repo)
