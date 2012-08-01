@@ -9,7 +9,7 @@ typedef unsigned int EntityID;
 
 #include "FL/Entity/Component.h"
 #include "FL/Entity/EntityManager.h"
-#include "FL/Event/FLEvents.h"
+#include "FL/Events/FLEvents.h"
 
 #include <Python.h>
 

@@ -9,7 +9,7 @@
 #include <OpenGL/gl.h>
 
 #include "FL/Event/EventManager.h"
-#include "FL/Event/FLEvents.h"
+#include "FL/Events/FLEvents.h"
 
 #include "FL/Entity/EntityManager.h"
 

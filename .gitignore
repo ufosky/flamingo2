@@ -16,6 +16,7 @@ xcuserdata/
 /lib/
 /swig/*.cxx
 /swig/components/*.cxx
+/swig/events/*.cxx
 /python/flamingo/*
 !/python/flamingo/__init__.py
 !/python/flamingo/script.py

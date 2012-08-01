@@ -12,5 +12,7 @@
 #define FL_EVENT_COMPONENT_ADD      5
 #define FL_EVENT_COMPONENT_REMOVE   6
 
+#define FL_EVENT_INPUT              7
+
 #endif
 

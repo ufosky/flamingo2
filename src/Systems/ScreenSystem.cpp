@@ -1,6 +1,7 @@
 
 #include "FL/Systems/ScreenSystem.h"
 #include "FL/Components/FLComponents.h"
+#include "FL/Events/InputEvent.h"
 
 #include <Python.h>
 

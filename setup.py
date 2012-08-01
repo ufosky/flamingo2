@@ -24,10 +24,17 @@ positioncomp_module = Extension('python/flamingo/components/_positioncomp',
                                'src/Entity/Component.cpp', 'src/Components/PositionComp.cpp'],
                            include_dirs=['include', '/Library/Frameworks/SDL.framework/Headers'],
                            extra_compile_args=['-DSWIG_TYPE_TABLE=flamingo'])
+
+inputevent_module = Extension('python/flamingo/events/_inputevent',
+                           sources=['swig/events/inputevent_wrap.cxx'],
+                           include_dirs=['include'],
+                           extra_compile_args=['-DSWIG_TYPE_TABLE=flamingo'])
+
+
 setup (name = 'flamingo ext',
        version = '0.0',
        author      = "Brad Zeis",
        description = """""",
        ext_modules = [component_module, eventmanager_module, entitymanager_module,
-                      positioncomp_module])
+                      positioncomp_module, inputevent_module])
 
