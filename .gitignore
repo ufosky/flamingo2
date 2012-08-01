@@ -14,8 +14,7 @@ xcuserdata/
 /build/
 /bin/
 /lib/
-/swig/*
-!/swig/*.i
+/swig/*.cxx
 /python/flamingo/*
 !/python/flamingo/__init__.py
 !/python/flamingo/script.py
