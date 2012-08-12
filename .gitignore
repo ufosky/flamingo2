@@ -24,6 +24,9 @@ xcuserdata/
 !/python/flamingo/components/
 /python/flamingo/components/*
 !/python/flamingo/components/__init__.py
+!/python/flamingo/events/
+/python/flamingo/events/*
+!/python/flamingo/events/__init__.py
 
 /test/FlamingoTest/FlamingoTest
 /test/FlamingoTest/lib
