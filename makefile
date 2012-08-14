@@ -45,7 +45,7 @@ buildswig:
 	@echo "\nBuilding Swig Modules...\n"
 
 pyswig: buildswig $(SWIGWRAP)
-	ARCHFLAGS="-arch x86_64" python setup.py build_ext --inplace --quiet
+	ARCHFLAGS="-arch x86_64" CC="clang" python setup.py build_ext --inplace --quiet
 
 $(SWIGDIR)/%_wrap.cxx: $(SWIGDIR)/%.i
 	swig -python -c++ -outdir $(PYDIR)/$(shell dirname $(patsubst $(SWIGDIR)/%.i,%.i,$<)) $<

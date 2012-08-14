@@ -45,7 +45,7 @@ int Flamingo::Execute(int argc, char *argv[]) {
             _Step();
         }
 
-        std::cout << _masterClock->GetFPS() << "\n";
+        //std::cout << _masterClock->GetFPS() << "\n";
 
         interpolation = accumulator / timestep;
 

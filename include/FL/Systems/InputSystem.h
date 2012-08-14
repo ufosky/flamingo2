@@ -5,8 +5,6 @@
 #include "FL/Entity/EntitySystem.h"
 #include "Python.h"
 
-#include <vector>
-
 class InputSystem : public EntitySystem {
 
     public:
@@ -21,8 +19,7 @@ class InputSystem : public EntitySystem {
         void End();
         void ProcessEntity(Entity *e);
 
-        PyObject *inputManager, *inputEvent;
-        std::vector<PyObject *> inputQueue;
+        PyObject *inputManager, *inputEventClass, *inputEventQueue;
 };
 
 #endif
