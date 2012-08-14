@@ -68,7 +68,7 @@ int Flamingo::_Init(int argc, char *argv[]) {
 	Entity *e = _entityManager->CreateEntity();
     _entityManager->AddComponent(e, new PositionComp());
     ScreenComp *s = new ScreenComp(&_displaySize);
-    s->LoadScript("scripts/testscript.py", "testscript");
+    //s->LoadScript("scripts/testscript.py", "testscript");
 	_entityManager->AddComponent(e, s);
 
 	e = _entityManager->CreateEntity();
