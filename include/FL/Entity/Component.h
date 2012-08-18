@@ -36,15 +36,15 @@ class Component {
         std::string scriptname;
         PyObject *script;
 
-        virtual int Dump(sqlite3 *db);
-        virtual int Load(sqlite3 *db);
-
-        virtual int DumpScript(PyObject *data);
-        virtual int LoadScript();
+        int Dump(sqlite3 *db);
+        int Load(sqlite3 *db);
 
     protected:
         ComponentType _type;
         ComponentID _id;
+
+        virtual char *Columns();
+        virtual char *DumpRow();
 };
 
 class ComponentEvent : public EventData {

@@ -1,7 +1,6 @@
 
 #include "FL/Components/PositionComp.h"
-
-#include <iostream>
+#include <sqlite3.h>
 
 PositionComp::PositionComp() : Component(FL_COMPTYPE_POSITION) {
     _x = 0;
@@ -122,5 +121,13 @@ float PositionComp::GetCornerX(int corner) {
 float PositionComp::GetCornerY(int corner) {
 
     return _dim(1, corner);
+}
+
+char *PositionComp::Columns() {
+    return (char *)", x real, y real, w real, h real";
+}
+
+char *PositionComp::DumpRow() {
+    return sqlite3_mprintf(", %f, %f, %f, %f", _x, _y, _w, _h);
 }
 

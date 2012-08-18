@@ -17,6 +17,10 @@ class ScreenComp : public Component {
 		~ScreenComp();
 		
         SDL_Rect local_rect;
+    
+    private:
+        virtual char *Columns();
+        virtual char *DumpRow();
 };
 
 #endif

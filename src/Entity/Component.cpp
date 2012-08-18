@@ -69,12 +69,15 @@ void Component::ProcessScript() {
     }
 }
 
+#include <iostream>
+
 int Component::Dump(sqlite3 *db) {
     int rc;
     char *msg, *query;
 
-    query = sqlite3_mprintf("create table if not exists tblComponent_%d(componentID int PRIMARY KEY, scriptName text);"
-            "insert into tblComponent_%d (componentID, scriptname) values (%d, '%q')", _type, _type, _id, scriptname.c_str());
+    query = sqlite3_mprintf("create table if not exists tblComponent_%d(componentID int PRIMARY KEY, scriptName text%s);"
+            "insert into tblComponent_%d values (%d, '%q'%s)", _type, Columns(), _type, _id, scriptname.c_str(), DumpRow());
+    std::cout << query << "\n";
     rc = sqlite3_exec(db, query, NULL, NULL, &msg);
     if (rc) {
         return rc;
@@ -87,11 +90,11 @@ int Component::Load(sqlite3 *db) {
     return 0;
 }
 
-int Component::DumpScript(PyObject *data) {
-    return 0;
+char *Component::Columns() {
+    return (char *)"";
 }
 
-int Component::LoadScript() {
-    return 0;
+char *Component::DumpRow() {
+    return (char *)"";
 }
 

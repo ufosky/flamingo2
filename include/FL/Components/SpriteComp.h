@@ -20,6 +20,10 @@ class SpriteComp : public Component {
         void LoadImage(std::string file);
 
         Image *img;
+    
+    private:
+        //virtual char *Columns();
+        //virtual char *DumpRow();
 };
 
 #endif

@@ -46,6 +46,9 @@ class PositionComp : public Component {
         Eigen::Matrix<float,3,4> _dim;
 
         void _Reset();
+
+        virtual char *Columns();
+        virtual char *DumpRow();
 };
 
 #endif
