@@ -1,6 +1,6 @@
 
-#ifndef _CLOCK_H_
-#define _CLOCK_H_
+#ifndef CLOCK_H_
+#define CLOCK_H_
 
 #include <time.h>
 

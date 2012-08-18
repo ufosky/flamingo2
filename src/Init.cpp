@@ -4,10 +4,10 @@
 #include "FL/FLUtility.h"
 
 #include "IL/il.h"
-
 #include "physfs.h"
-
 #include <Python.h>
+
+#include <iostream>
 
 int Flamingo::_Init(int argc, char *argv[]) {
 
@@ -48,6 +48,8 @@ int Flamingo::_Init(int argc, char *argv[]) {
     PHYSFS_init(argv[0]);
     PHYSFS_mount(PHYSFS_getBaseDir(), "/", 0);
     ilInit();
+
+    std::cout << "PHYSFS Base Dir: " << PHYSFS_getBaseDir() << "\n";
     
     //// Python
     Py_Initialize();
@@ -64,20 +66,25 @@ int Flamingo::_Init(int argc, char *argv[]) {
     //// Screens
     screenSystem = new ScreenSystem(_eventManager, _entityManager);
 	SDL_Rect r = {0, 100, 640, 240};
+	SDL_Rect r2 = {100, 200, 800, 480};
 
 	Entity *e = _entityManager->CreateEntity();
     _entityManager->AddComponent(e, new PositionComp());
-    ScreenComp *s = new ScreenComp(&_displaySize);
-    //s->LoadScript("scripts/testscript.py", "testscript");
+    //ScreenComp *s = new ScreenComp(&_displaySize);
+    ScreenComp *s = new ScreenComp(&r2);
+    s->LoadScript("scripts/testscript.py", "testscript");
 	_entityManager->AddComponent(e, s);
 
 	e = _entityManager->CreateEntity();
     _entityManager->AddComponent(e, new PositionComp());
 	_entityManager->AddComponent(e, new ScreenComp(&r));
-    _entityManager->DestroyEntity(e);
+    //_entityManager->DestroyEntity(e);
 
-    
     int res = this->Init(argc, argv);
+    
+    // Test DB dump
+    _entityManager->Dump("database.db");
+    
     return res;
 }
 

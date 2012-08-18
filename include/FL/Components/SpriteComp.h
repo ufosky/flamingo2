@@ -8,8 +8,8 @@ class SpriteComp;
 #include "FL/Components/FLComponents.h"
 
 #include "FL/Image.h"
-
 #include <string>
+
 
 class SpriteComp : public Component {
 	public:

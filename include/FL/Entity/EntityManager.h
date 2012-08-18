@@ -11,6 +11,10 @@ class EntityManager;
 #include <map>
 #include <set>
 #include <vector>
+#include <string>
+
+#include <sqlite3.h>
+#include "physfs.h"
 
 class EntityManager {
 
@@ -29,6 +33,9 @@ class EntityManager {
 
         const std::vector<Component *> &GetComponents(Entity *e, ComponentType type);
         Component *GetComponent(Entity *e, ComponentType type);
+
+        int Dump(std::string file);
+        int Load(std::string file);
 
     protected:
 

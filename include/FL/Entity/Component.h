@@ -13,6 +13,8 @@ typedef unsigned int ComponentID;
 #include <vector>
 #include <string>
 
+#include <sqlite3.h>
+
 class Component {
 
     friend class EntityManager;
@@ -23,16 +25,22 @@ class Component {
             LoadScript(file, module);
         }
         virtual ~Component();
+        
+        Entity *entity;
+
+        ComponentID GetID() { return _id; };
+        ComponentType GetType() { return _type; };
 
         bool LoadScript(std::string file, std::string module);
         void ProcessScript();
         std::string scriptname;
         PyObject *script;
 
-        Entity *entity;
+        virtual int Dump(sqlite3 *db);
+        virtual int Load(sqlite3 *db);
 
-        ComponentID GetID() { return _id; };
-        ComponentType GetType() { return _type; };
+        virtual int DumpScript(PyObject *data);
+        virtual int LoadScript();
 
     protected:
         ComponentType _type;

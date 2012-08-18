@@ -69,3 +69,29 @@ void Component::ProcessScript() {
     }
 }
 
+int Component::Dump(sqlite3 *db) {
+    int rc;
+    char *msg, exec[100];
+
+    sprintf(exec, "create table if not exists tblComponent_%d(componentID int PRIMARY KEY);"
+            "insert into tblComponent_%d values (%d)", _type, _type, _id);
+    rc = sqlite3_exec(db, exec, NULL, NULL, &msg);
+    if (rc) {
+        return rc;
+    }
+
+    return rc;
+}
+
+int Component::Load(sqlite3 *db) {
+    return 0;
+}
+
+int Component::DumpScript(PyObject *data) {
+    return 0;
+}
+
+int Component::LoadScript() {
+    return 0;
+}
+

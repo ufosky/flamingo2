@@ -1,6 +1,6 @@
 CC=clang++
 CFLAGS=-c -Wall -Iinclude -I/Library/Frameworks/SDL.framework/Headers -I/Library/Frameworks/Python.framework/Headers -DSWIG_TYPE_TABLE=flamingo
-LDFLAGS=-lIL -lphysfs -framework SDL -framework OpenGL -framework Python -dynamiclib
+LDFLAGS=-lIL -lphysfs -framework SDL -framework OpenGL -lsqlite3 -framework Python -dynamiclib
 
 TARGET    = libflamingo.dylib
 LIBNAME   = flamingo

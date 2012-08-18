@@ -1,6 +1,6 @@
 
-#ifndef _INPUTEVENT_H_
-#define _INPUTEVENT_H_
+#ifndef INPUTEVENT_H_
+#define INPUTEVENT_H_
 
 #include "FL/Event/Event.h"
 #include "FL/Events/FLEvents.h"

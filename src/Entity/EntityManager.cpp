@@ -73,6 +73,7 @@ void EntityManager::AddComponent(Entity *e, Component *comp) {
         entities.resize(e->_index + 1);
     }
 
+    comp->_id = ++_nextID;
     comp->entity = e;
 
     std::vector<Component *> &components = entities[e->_index];
@@ -108,8 +109,6 @@ void EntityManager::RemoveComponent(Entity *e, Component *comp) {
 
     _eventManager->FireEvent(new ComponentEvent(FL_EVENT_COMPONENT_REMOVE, e, comp->_type));
 }
-
-#include <iostream>
 
 void EntityManager::_RemoveAllComponents(Entity *e, ComponentType type) {
     std::vector<std::vector<Component *> > &entities = _components[type];
@@ -169,5 +168,70 @@ Component *EntityManager::GetComponent(Entity *e, ComponentType type) {
     }
 
     return entities[e->_index][0];
+}
+
+#include <iostream>
+
+int EntityManager::Dump(std::string filename) {
+    sqlite3 *db;
+    std::string f = std::string(PHYSFS_getBaseDir()) + filename;
+    std::cout << "Loading DB: " << f << "\n";
+    int rc = sqlite3_open(f.c_str(), &db);
+    char *msg, exec[100];
+
+    if (rc) {
+        return rc;
+    }
+
+    rc = sqlite3_exec(db, "create table if not exists tblEntities(entityID int PRIMARY KEY);"
+            "create table if not exists tblEntityComponents(entityID int, componentType int, componentID int PRIMARY KEY)", NULL, NULL, &msg);
+    if (!rc) {
+        std::vector<Entity *>::iterator entityit;
+        for (entityit = _entities.begin(); entityit != _entities.end(); entityit++) {
+            Entity *e = *entityit;
+            
+            if (e == NULL) {
+                continue;
+            }
+
+            // Insert EntityID
+            sprintf(exec, "insert into tblEntities (entityID) values (%d)", e->_id);
+            rc = sqlite3_exec(db, exec, NULL, NULL, &msg);
+            if (rc) {
+                return rc;
+            }
+            
+            std::set<ComponentType>::iterator typeit;
+            //std::cout << "Entity: " << e->_id << "\n";
+
+            for (typeit = e->_types.begin(); typeit != e->_types.end(); typeit++) {
+                ComponentType type = *typeit;
+            
+                const std::vector<Component *> components = GetComponents(e, type);
+                std::vector<Component *>::const_iterator compit;
+                for (compit = components.begin(); compit != components.end(); compit++) {
+                    
+                    // Insert Component into tblEntityComponents
+                    sprintf(exec, "insert into tblEntityComponents values (%d, %d, %d)", e->_id, type, (*compit)->_id);
+                    rc = sqlite3_exec(db, exec, NULL, NULL, &msg);
+                    if (rc) {
+                        return rc;
+                    }
+
+                    rc = (*compit)->Dump(db);
+                    if (rc) {
+                        return rc;
+                    }
+                }
+            }
+        }
+    } 
+
+    sqlite3_close(db);
+    return rc;
+}
+
+int EntityManager::Load(std::string filename) {
+    return 0;
 }
 
