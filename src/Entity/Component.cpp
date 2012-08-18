@@ -71,11 +71,11 @@ void Component::ProcessScript() {
 
 int Component::Dump(sqlite3 *db) {
     int rc;
-    char *msg, exec[100];
+    char *msg, *query;
 
-    sprintf(exec, "create table if not exists tblComponent_%d(componentID int PRIMARY KEY);"
-            "insert into tblComponent_%d values (%d)", _type, _type, _id);
-    rc = sqlite3_exec(db, exec, NULL, NULL, &msg);
+    query = sqlite3_mprintf("create table if not exists tblComponent_%d(componentID int PRIMARY KEY, scriptName text);"
+            "insert into tblComponent_%d (componentID, scriptname) values (%d, '%q')", _type, _type, _id, scriptname.c_str());
+    rc = sqlite3_exec(db, query, NULL, NULL, &msg);
     if (rc) {
         return rc;
     }

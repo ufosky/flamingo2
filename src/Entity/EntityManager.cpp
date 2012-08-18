@@ -177,7 +177,7 @@ int EntityManager::Dump(std::string filename) {
     std::string f = std::string(PHYSFS_getBaseDir()) + filename;
     std::cout << "Loading DB: " << f << "\n";
     int rc = sqlite3_open(f.c_str(), &db);
-    char *msg, exec[100];
+    char *msg, *query;
 
     if (rc) {
         return rc;
@@ -195,8 +195,8 @@ int EntityManager::Dump(std::string filename) {
             }
 
             // Insert EntityID
-            sprintf(exec, "insert into tblEntities (entityID) values (%d)", e->_id);
-            rc = sqlite3_exec(db, exec, NULL, NULL, &msg);
+            query = sqlite3_mprintf("insert into tblEntities (entityID) values (%d)", e->_id);
+            rc = sqlite3_exec(db, query, NULL, NULL, &msg);
             if (rc) {
                 return rc;
             }
@@ -212,8 +212,8 @@ int EntityManager::Dump(std::string filename) {
                 for (compit = components.begin(); compit != components.end(); compit++) {
                     
                     // Insert Component into tblEntityComponents
-                    sprintf(exec, "insert into tblEntityComponents values (%d, %d, %d)", e->_id, type, (*compit)->_id);
-                    rc = sqlite3_exec(db, exec, NULL, NULL, &msg);
+                    query = sqlite3_mprintf("insert into tblEntityComponents values (%d, %d, %d)", e->_id, type, (*compit)->_id);
+                    rc = sqlite3_exec(db, query, NULL, NULL, &msg);
                     if (rc) {
                         return rc;
                     }
