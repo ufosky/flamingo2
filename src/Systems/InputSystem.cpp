@@ -10,7 +10,7 @@ static SDL_Event sdl_event;
 
 InputSystem::InputSystem(EventManager *eventManager, EntityManager *entityManager) : EntitySystem(eventManager, entityManager) {
 
-    _types.insert(FL_COMPTYPE_INPUT);
+    //_types.insert(FL_COMPTYPE_INPUT);
     quit = false;
 
     // Load Python module

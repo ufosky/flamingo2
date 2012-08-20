@@ -9,6 +9,8 @@
 
 #include <iostream>
 
+#define REGISTER_COMPONENT(NAME, TYPE) _entityManager->factory->RegisterComponent<NAME>(TYPE)
+
 int Flamingo::_Init(int argc, char *argv[]) {
 
     if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
@@ -62,6 +64,14 @@ int Flamingo::_Init(int argc, char *argv[]) {
     inputSystem = new InputSystem(_eventManager, _entityManager);
 
     _masterClock = new Clock();
+
+    // Register Components
+    REGISTER_COMPONENT(PositionComp, FL_COMPTYPE_POSITION);
+    REGISTER_COMPONENT(ScreenComp, FL_COMPTYPE_SCREEN);
+    REGISTER_COMPONENT(SpriteComp, FL_COMPTYPE_SPRITE);
+
+    ScreenComp *_s = (ScreenComp *)_entityManager->factory->CreateInstance(FL_COMPTYPE_SCREEN);
+    std::cout << _s->local_rect.x << "\n";
 
     //// Screens
     screenSystem = new ScreenSystem(_eventManager, _entityManager);

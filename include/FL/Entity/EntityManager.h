@@ -6,6 +6,7 @@ class EntityManager;
 
 #include "FL/Entity/Entity.h"
 #include "FL/Entity/Component.h"
+#include "FL/Entity/ComponentFactory.h"
 #include "FL/Event/EventManager.h"
 
 #include <map>
@@ -37,6 +38,8 @@ class EntityManager {
         int Dump(std::string file);
         int Load(std::string file);
 
+        ComponentFactory *factory;
+
     protected:
 
         void _RemoveAllComponents(Entity *e, ComponentType type);
@@ -50,6 +53,7 @@ class EntityManager {
 
         EventManager *_eventManager;
 };
+
 
 #endif
 

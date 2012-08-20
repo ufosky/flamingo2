@@ -11,6 +11,8 @@ EntityManager::EntityManager(EventManager *eventManager) {
     _nextID = 0;
     _eventManager = eventManager;
     _components.resize(FL_COMPTYPE_COUNT + 1);
+
+    factory = new ComponentFactory();
 }
 
 EntityManager::~EntityManager() {
@@ -28,6 +30,7 @@ EntityManager::~EntityManager() {
     }
 
     _components.clear();
+    delete factory;
 }
 
 Entity *EntityManager::CreateEntity() {

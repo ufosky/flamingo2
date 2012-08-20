@@ -7,7 +7,6 @@
 #include "FL/Components/PositionComp.h"
 #include "FL/Components/SpriteComp.h"
 #include "FL/Components/ScreenComp.h"
-#include "FL/Components/InputComp.h"
 
 #endif
 
