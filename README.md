@@ -1,4 +1,6 @@
 
+Looks like I bit off a bit more than I can chew. Again. There's some cool stuff in this project, so I'll probably come back to it later. For now, I'm going to work on a few less ambitious game projects.
+
 Currently compiles only on Mac OS X (tested on 10.6 and 10.7)
 
 Dependencies:
